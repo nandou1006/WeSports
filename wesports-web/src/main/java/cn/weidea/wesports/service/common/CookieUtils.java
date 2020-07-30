@@ -1,4 +1,4 @@
-package cn.weidea.wesports.common;
+package cn.weidea.wesports.service.common;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
