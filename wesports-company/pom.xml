@@ -17,6 +17,10 @@
             <version>2.6.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-interface</artifactId>
+        </dependency>
     </dependencies>
 
 
