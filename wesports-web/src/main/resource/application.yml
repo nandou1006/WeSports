@@ -5,11 +5,6 @@ spring:
 ---
 spring:
   profiles: dev
-  datasource:
-      url: jdbc:mysql://127.0.0.1:3306/wesports?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
-      username: root
-      password: helloworld
-      filters: log4j,wall,mergeStat
 
 # service version
 wesports:
@@ -18,7 +13,7 @@ wesports:
 
 # redis config
 redis:
-  host: 127.0.0.1
+  host: 47.113.91.20
   port: 6379
   password: wesports
 
@@ -29,13 +24,10 @@ dubbo:
     name: wesports-web-dev
   registry:
     protocol: zookeeper
-    address: 127.0.0.1:2181
+    address: 106.52.54.67:2181
 # web port
 server:
   port: 9999
-# mysql
-
-
 
 ---
 spring:

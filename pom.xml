@@ -10,6 +10,7 @@
         <module>wesports-utils</module>
         <module>wesports-redis</module>
         <module>wesports-company</module>
+        <module>wesports-common-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -111,17 +112,4 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>alimaven</id>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>alimaven</id>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

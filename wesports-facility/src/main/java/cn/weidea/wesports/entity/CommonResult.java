@@ -1,7 +1,7 @@
 package cn.weidea.wesports.entity;
 
 
-import cn.weidea.wesports.enums.ErrorCode;
+import cn.weidea.wesports.enums.ErrorCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -87,11 +87,11 @@ public class CommonResult implements Serializable {
     /**
      * 通过错误码枚举构造错误响应
      *
-     * @param errorCode 错误码枚举
+     * @param errorCodeEnum 错误码枚举
      * @return
      */
-    public static CommonResult failure(ErrorCode errorCode) {
-        return new CommonResult(errorCode.getCode(), errorCode.getDesc(), null);
+    public static CommonResult failure(ErrorCodeEnum errorCodeEnum) {
+        return new CommonResult(errorCodeEnum.getCode(), errorCodeEnum.getDesc(), null);
     }
 
 }
