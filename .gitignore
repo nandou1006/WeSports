@@ -63,5 +63,3 @@ build/
 *.ipr
 *.iws
 .idea/
-
-src/
