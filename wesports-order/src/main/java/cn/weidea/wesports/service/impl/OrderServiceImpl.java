@@ -31,8 +31,8 @@ public class OrderServiceImpl implements OrderService {
         order.setCost(orderVO.getCost());
         order.setStartTime(orderVO.getStartTime());
         order.setEndTime(orderVO.getEndTime());
-        orderMapper.insert(order);
-        return true;
+        int ret = orderMapper.insert(order);
+        return ret > 0;
     }
 
     @Override

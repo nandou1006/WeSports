@@ -12,7 +12,6 @@ public class RootController {
 
     @PostMapping(value = "/api/root/login")
     public Object login(@RequestBody LoginVo loginVo) {
-        log.info("类别为:{}, 用户{} 登录", loginVo.getGroupId(), loginVo.getUsername());
-
+        return null;
     }
 }
