@@ -7,6 +7,8 @@
         <module>wesports-interface</module>
         <module>wesports-web</module>
         <module>wesports-admin-service</module>
+        <module>wesports-utils</module>
+        <module>wesports-redis</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -86,14 +88,22 @@
                 <artifactId>wesports-facility</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.weidea</groupId>
+                <artifactId>wesports-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
