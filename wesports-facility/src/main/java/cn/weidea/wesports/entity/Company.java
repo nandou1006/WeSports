@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Company {
 
-    private String companyName;
+    private String name;
 
     private String uscc;
 
