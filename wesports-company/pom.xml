@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesport-company</artifactId>
+    <artifactId>wesports-company</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
