@@ -1,0 +1,57 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+
+# service version
+wesports:
+  service:
+    version: 1.0.dev
+
+# redis config
+redis:
+  host: 47.113.91.20
+  port: 6379
+  password: wesports
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-web-dev
+    name: wesports-web-dev
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+# web port
+server:
+  port: 9999
+
+---
+spring:
+  profiles: uat
+
+# service version
+wesports:
+  service:
+    version: 1.0
+
+# redis config
+redis:
+  host: 47.113.91.20
+  port: 6379
+  password: wesports
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-web
+    name: wesports-web
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+# web port
+server:
+  port: 9999

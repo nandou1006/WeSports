@@ -9,13 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesports-interface</artifactId>
-    <description>服务接口模块</description>
+    <artifactId>wesports-utils</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.weidea</groupId>
-            <artifactId>wesports-facility</artifactId>
-        </dependency>
-    </dependencies>
+    <description>常用工具类</description>
+
 </project>
