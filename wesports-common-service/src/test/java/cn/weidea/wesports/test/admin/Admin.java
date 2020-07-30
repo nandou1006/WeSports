@@ -1,6 +1,7 @@
 package cn.weidea.wesports.test.admin;
 
 import cn.weidea.wesports.entity.CommonResult;
+import cn.weidea.wesports.enums.GroupIdEnum;
 import cn.weidea.wesports.service.WebApplication;
 import cn.weidea.wesports.service.common.login.ILoginService;
 import cn.weidea.wesports.vo.LoginVo;
@@ -24,6 +25,7 @@ public class Admin {
         LoginVo loginVo = new LoginVo();
         loginVo.setUserName("123");
         loginVo.setPassword("123");
+        loginVo.setGroupId(GroupIdEnum.A.name());
         CommonResult commonResult = loginService.login(loginVo);
         log.info("{}", commonResult);
     }

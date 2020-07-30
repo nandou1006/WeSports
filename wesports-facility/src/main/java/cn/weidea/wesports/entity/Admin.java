@@ -26,4 +26,5 @@ public class Admin {
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date lastLoginTime;
+
 }

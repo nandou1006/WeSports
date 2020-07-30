@@ -1,6 +1,6 @@
 package cn.weidea.wesports.mapper;
 
-import cn.weidea.wesports.service.company.Company;
+import cn.weidea.wesports.entity.Company;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 
