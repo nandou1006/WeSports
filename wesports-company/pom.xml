@@ -9,13 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesport-company</artifactId>
+    <artifactId>wesports-company</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>dubbo</artifactId>
             <version>2.6.2</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-interface</artifactId>
         </dependency>
     </dependencies>
 
