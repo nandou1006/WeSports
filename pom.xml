@@ -6,6 +6,7 @@
         <module>wesports-facility</module>
         <module>wesports-interface</module>
         <module>wesports-web</module>
+        <module>wesport-company</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -93,4 +94,17 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>alimaven</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alimaven</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
