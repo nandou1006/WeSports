@@ -9,6 +9,7 @@
         <module>wesports-admin-service</module>
         <module>wesports-utils</module>
         <module>wesports-redis</module>
+        <module>wesports-common-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -75,6 +76,12 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
                 <version>${springboot.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>

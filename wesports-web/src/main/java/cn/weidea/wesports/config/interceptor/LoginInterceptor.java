@@ -1,6 +1,6 @@
 package cn.weidea.wesports.config.interceptor;
 
-import cn.weidea.wesports.common.LoginUtils;
+import cn.weidea.wesports.service.impl.common.LoginUtils;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.redis.RedisUtils;
 import com.alibaba.fastjson.JSONObject;

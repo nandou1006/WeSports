@@ -5,9 +5,12 @@ package cn.weidea.wesports.enums;
  *
  * @author L99
  */
-public enum ErrorCode {
+public enum ErrorCodeEnum {
 
-    SUCCESS(200, "成功");
+    SUCCESS(200, "成功"),
+
+    // 用户名与密码不匹配
+    MISMATCH(400, "账户名与密码不匹配，请重新输入");
 
     /**
      * 错误码
@@ -19,7 +22,7 @@ public enum ErrorCode {
      */
     private String desc;
 
-    ErrorCode(Integer code, String desc) {
+    ErrorCodeEnum(Integer code, String desc) {
         this.code = code;
         this.desc = desc;
     }

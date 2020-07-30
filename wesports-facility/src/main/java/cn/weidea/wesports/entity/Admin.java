@@ -1,4 +1,4 @@
-package cn.weidea.wesports.entity.admin;
+package cn.weidea.wesports.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;
@@ -13,11 +13,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Root {
+public class Admin {
 
     private int id;
 
-    private String userName;
+    private String username;
 
     private String password;
 
@@ -25,5 +25,5 @@ public class Root {
     private Date createTime;
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
-    private Date lastUpdateTime;
+    private Date lastLoginTime;
 }
