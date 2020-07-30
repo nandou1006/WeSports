@@ -1,4 +1,4 @@
-package cn.weidea.wesports.entity.admin;
+package cn.weidea.wesports.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.AllArgsConstructor;

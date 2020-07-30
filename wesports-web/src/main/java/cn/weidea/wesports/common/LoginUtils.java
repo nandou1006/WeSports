@@ -3,7 +3,6 @@ package cn.weidea.wesports.common;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.enums.ErrorCode;
 import cn.weidea.wesports.redis.RedisUtils;
-import cn.weidea.wesports.service.redis.IRedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
@@ -67,9 +66,9 @@ public class LoginUtils {
      * @param request
      * @return
      */
-    public static String getUserId(HttpServletRequest request, IRedisService redisService) {
+    public static String getUserId(HttpServletRequest request, RedisUtils redisService) {
         String token = CookieUtils.getCookieValue(request, "token");
-        return token == null ? null : (String) redisService.getValueIfExist(token).getData();
+        return token == null ? null : (String) redisService.get(token);
     }
 
 }
