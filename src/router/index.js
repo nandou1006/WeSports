@@ -6,13 +6,14 @@ import Selector from '@/components/Selector'
 import Order from '@/components/Order'
 import Mine from '@/components/Mine'
 import MyOrder from '@/components/MyOrder'
+import OrderDetail from '@/components/OrderDetail'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'Reservation',
       component: Reservation
     },
@@ -40,6 +41,11 @@ export default new Router({
       path: '/myOrder',
       name: MyOrder,
       component: MyOrder
+    },
+    {
+      path: '/orderDetail',
+      name: OrderDetail,
+      component: OrderDetail
     }
   ]
 })

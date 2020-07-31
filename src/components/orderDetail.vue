@@ -1,11 +1,9 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
-    <div class="div1 div-col"/>
-    <div class="div2 div-col">
-      <div class="div-row"/>
-      <div class="div-row"/>
-      <div class="div-row" @click="myOrder"/>
-      <div class="div-row"/>
+    <div class="div1"/>
+    <div class="div2">
+      <div class="refundButton" @click="refund"/>
+      <div class="homeButton" @click="home"/>
     </div>
   </div>
 </template>
@@ -15,7 +13,7 @@ export default {
   data () {
     return {
       backgroundImg: {
-        backgroundImage: 'url(' + require('@/assets/Mine.jpg') + ')',
+        backgroundImage: 'url(' + require('@/assets/orderDetail.jpg') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
@@ -23,8 +21,11 @@ export default {
     }
   },
   methods: {
-    myOrder () {
-      this.$router.push({ path: '/myOrder' })
+    refund () {
+      console.log('refund')
+    },
+    home () {
+      this.$router.push({ path: '/home' })
     }
   }
 }
@@ -35,15 +36,11 @@ export default {
   height: 792px;
 }
 .div1{
-  height: 230px;
+  height: 670;
 }
 .div2{
-  height: 90px;
+  height: 40px;
   display: flex;
-  justify-content: space-around;
-}
-.div-row{
-  width: 100px;
 }
 .div-col{
 }
