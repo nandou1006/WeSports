@@ -1,13 +1,10 @@
-package cn.weidea.wesports.test.company;
+package cn.weidea.wesports.test.companyField;
 
 import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.enums.GroupIdEnum;
 import cn.weidea.wesports.service.app.CompanyServiceApplication;
-import cn.weidea.wesports.service.common.login.ILoginService;
+import cn.weidea.wesports.service.company.ICompanyFieldService;
 import cn.weidea.wesports.service.company.ICompanyService;
-import cn.weidea.wesports.service.impl.company.CompanyServiceImpl;
 import cn.weidea.wesports.vo.CompanyVo;
-import cn.weidea.wesports.vo.LoginVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,10 +16,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest(classes = CompanyServiceApplication.class)
 @ExtendWith(SpringExtension.class)
 @Slf4j
-public class CompanyServiceTest {
+public class CompanyFieldServiceTest {
 
     @Autowired
-    ICompanyService companyService;
+    ICompanyFieldService companyFieldService;
 
     @Test
     public void test() {
@@ -32,13 +29,13 @@ public class CompanyServiceTest {
         companyVo.setPassword("666666");
         companyVo.setUscc("loverabbit");
         companyVo.setProfile("empty profile");
-        CommonResult commonResult = companyService.create(companyVo);
-        System.out.println(commonResult.getData());
+//        CommonResult commonResult = companyFieldService.create(companyVo);
+//        System.out.println(commonResult.getData());
     }
 
     @Test
     public void test2() {
-        CommonResult commonResult = companyService.selectAll();
+        CommonResult commonResult = companyFieldService.selectAllField();
         System.out.println(commonResult.getData());
     }
 }

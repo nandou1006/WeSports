@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-@Service
+@Service(version = "${wesports.service.version}",interfaceClass = ICompanyService.class)
 public class CompanyServiceImpl implements ICompanyService {
 
     @Autowired

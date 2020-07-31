@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 
-@Service
+@Service(version = "${wesports.service.version}",interfaceClass = ICompanyFieldService.class)
 @Repository
 public class CompanyFieldServiceImpl implements ICompanyFieldService {
 
