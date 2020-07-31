@@ -6,11 +6,10 @@ spring:
 spring:
   profiles: dev
   datasource:
-      url: jdbc:mysql://127.0.0.1:3306/wesports?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
-      username: root
-      password: helloworld
-      filters: log4j,wall,mergeStat
       driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://106.52.54.67:3306/wesports?useSSL=false&useUnicode=true&characterEncoding=utf-8
+      username: root
+      password: Wesport2020@
 
 # service version
 wesports:
@@ -19,7 +18,7 @@ wesports:
 
 # redis config
 redis:
-  host: 47.113.91.20
+  host: 106.52.54.67
   port: 6379
   password: wesports
 
@@ -28,9 +27,11 @@ dubbo:
   application:
     id: wesports-web-dev
     name: wesports-web-dev
+    qos-enable: false
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181
+
 # web port
 server:
   port: 9999
@@ -46,7 +47,7 @@ wesports:
 
 # redis config
 redis:
-  host: 47.113.91.20
+  host: 106.52.54.67
   port: 6379
   password: wesports
 
@@ -55,9 +56,9 @@ dubbo:
   application:
     id: wesports-web
     name: wesports-web
-  registry:
-    protocol: zookeeper
-    address: 106.52.54.67:2181
+    registry:
+      protocol: zookeeper
+      address: 106.52.54.67:2181
 # web port
 server:
   port: 9999

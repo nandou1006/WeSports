@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Service(interfaceClass = OrderService.class)
+@Service(version = "${wespotrs.service.version}")
 public class OrderServiceImpl implements OrderService {
 
     @Autowired

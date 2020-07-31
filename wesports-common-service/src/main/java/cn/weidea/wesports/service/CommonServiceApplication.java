@@ -15,10 +15,10 @@ import java.io.IOException;
 @ComponentScan({"cn.weidea.wesports.redis"})
 @MapperScan("cn.weidea.wesports.mapper")
 @Slf4j
-public class WebApplication {
+public class CommonServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebApplication.class, args);
+        SpringApplication.run(CommonServiceApplication.class, args);
         try {
             System.in.read();
         } catch (IOException e) {

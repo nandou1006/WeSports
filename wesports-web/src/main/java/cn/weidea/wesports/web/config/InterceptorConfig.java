@@ -1,6 +1,6 @@
-package cn.weidea.wesports.config;
+package cn.weidea.wesports.web.config;
 
-import cn.weidea.wesports.config.interceptor.LoginInterceptor;
+import cn.weidea.wesports.web.config.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
