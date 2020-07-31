@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesports-order</artifactId>
+    <artifactId>wesports-order-service</artifactId>
 
     <dependencies>
         <dependency>
@@ -30,6 +30,11 @@
         <dependency>
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-interface</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-facility</artifactId>
         </dependency>
 
         <dependency>

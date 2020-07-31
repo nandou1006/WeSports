@@ -10,13 +10,14 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Component
 @Service(interfaceClass = OrderService.class)
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
+    @Resource
     private OrderMapper orderMapper;
 
     @Override
@@ -31,6 +32,7 @@ public class OrderServiceImpl implements OrderService {
         order.setCost(orderVO.getCost());
         order.setStartTime(orderVO.getStartTime());
         order.setEndTime(orderVO.getEndTime());
+        order.setOrderId("2020");
         int ret = orderMapper.insert(order);
         return ret > 0;
     }
@@ -42,6 +44,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto getOneOrder(String orderId) {
+//        Wrapper<Order> wrapper = new Wrapper<>();
+
+//        orderMapper.selectOne()
         return null;
     }
 
