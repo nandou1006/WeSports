@@ -1,11 +1,9 @@
-package cn.weidea.wesports.entity;
+package cn.weidea.wesports.vo;
 
 import lombok.Data;
 
 @Data
-public class Company {
-
-    private String id;
+public class CompanyVo {
 
     private String uscc;
 
@@ -16,5 +14,4 @@ public class Company {
     private String profile;
 
     private String address;
-
 }

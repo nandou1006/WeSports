@@ -9,10 +9,12 @@ public class CompanyField {
 
     private int companyId;
 
-    private String type;
+    private int type;//场地类型的编号表示
 
     private int number;
 
-    private String remark;
+    private String remark;//场地的类型的中文表示
+
+    private int occupy;//
 
 }

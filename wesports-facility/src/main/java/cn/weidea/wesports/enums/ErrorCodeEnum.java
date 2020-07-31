@@ -12,7 +12,14 @@ public enum ErrorCodeEnum {
     // 用户名与密码不匹配
     MISMATCH(400, "账户名与密码不匹配，请重新输入"),
 
-    NODATA(1000, "数据库查询结果为空，请确认查询参数");
+    NODATA(1000, "数据库查询结果为空，请确认查询参数"),
+
+    CREATE_FAIL(1001, "创建失败"),
+
+    DELECT_FAIL(1002, "删除失败"),
+
+    ID_ERROR(1003, "ID不存在"),
+    ;
 
     /**
      * 错误码
