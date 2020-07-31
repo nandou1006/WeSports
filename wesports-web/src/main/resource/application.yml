@@ -11,16 +11,17 @@ spring:
       username: root
       password: Wesport2020@
 
+  redis:
+    host: 106.52.54.67
+    port: 6379
+    password: wesports
 # service version
 wesports:
   service:
     version: 1.0.dev
 
 # redis config
-redis:
-  host: 106.52.54.67
-  port: 6379
-  password: wesports
+
 
 # Dubbo Config properties
 dubbo:
@@ -30,7 +31,7 @@ dubbo:
     qos-enable: false
   registry:
     protocol: zookeeper
-    address: 127.0.0.1:2181
+    address: 106.52.54.67:2181
   protocol:
     name: dubbo
     port: 20880

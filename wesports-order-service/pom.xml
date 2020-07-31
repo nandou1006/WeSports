@@ -41,6 +41,12 @@
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-redis</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

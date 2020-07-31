@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 public class OrderController {
 
-    @Reference(version = "${wespotrs.service.version}")
+    @Reference(version = "${wesports.service.version}")
     private OrderService orderService;
 
     /**
