@@ -26,17 +26,21 @@ import java.util.Map;
 @Component
 public class LoginServiceImpl implements ILoginService {
 
-    @Autowired
-    private AdminMapper adminMapper;
+    private final AdminMapper adminMapper;
+
+    private final UserMapper userMapper;
+
+    private final CompanyMapper companyMapper;
+
+    private final RedisUtils redisUtils;
 
     @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
-    private CompanyMapper companyMapper;
-
-    @Autowired
-    private RedisUtils redisUtils;
+    public LoginServiceImpl(AdminMapper adminMapper, UserMapper userMapper, CompanyMapper companyMapper, RedisUtils redisUtils) {
+        this.adminMapper = adminMapper;
+        this.userMapper = userMapper;
+        this.companyMapper = companyMapper;
+        this.redisUtils = redisUtils;
+    }
 
     @Override
     public CommonResult login(LoginVo loginVo) {

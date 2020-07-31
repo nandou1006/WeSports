@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @SpringBootApplication
 @EnableDubbo
-@ComponentScan("cn.weidea.wesports.*")
+@ComponentScan({"cn.weidea.wesports.redis"})
 @MapperScan("cn.weidea.wesports.mapper")
 @Slf4j
 public class WebApplication {
