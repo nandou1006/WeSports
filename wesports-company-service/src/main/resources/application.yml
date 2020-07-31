@@ -26,8 +26,8 @@ wesports:
 # Dubbo Config properties
 dubbo:
   application:
-    id: wesportrs-company-dev
-    name: wesportrs-company-dev
+    id: wesports-company-dev
+    name: wesports-company-dev
     qos-enable: false
   registry:
     protocol: zookeeper

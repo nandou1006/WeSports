@@ -1,13 +1,9 @@
 package cn.weidea.wesports.test.company;
 
 import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.enums.GroupIdEnum;
-import cn.weidea.wesports.service.app.CompanyServiceApplication;
-import cn.weidea.wesports.service.common.login.ILoginService;
+import cn.weidea.wesports.service.CompanyServiceApplication;
 import cn.weidea.wesports.service.company.ICompanyService;
-import cn.weidea.wesports.service.impl.company.CompanyServiceImpl;
 import cn.weidea.wesports.vo.CompanyVo;
-import cn.weidea.wesports.vo.LoginVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

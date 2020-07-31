@@ -1,9 +1,8 @@
 package cn.weidea.wesports.test.companyField;
 
 import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.service.app.CompanyServiceApplication;
+import cn.weidea.wesports.service.CompanyServiceApplication;
 import cn.weidea.wesports.service.company.ICompanyFieldService;
-import cn.weidea.wesports.service.company.ICompanyService;
 import cn.weidea.wesports.vo.CompanyVo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

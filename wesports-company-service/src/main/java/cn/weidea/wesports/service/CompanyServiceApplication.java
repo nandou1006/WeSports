@@ -1,4 +1,4 @@
-package cn.weidea.wesports.service.app;
+package cn.weidea.wesports.service;
 
 import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import lombok.extern.slf4j.Slf4j;
