@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/company")
 public class CompanyController {
 
-    @Reference
+    @Reference(version = "${wesports.service.version}")
     private ICompanyService companyService;
 
     @Autowired

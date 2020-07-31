@@ -1,8 +1,10 @@
 package cn.weidea.wesports.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName("company")
 public class Company {
 
     private String id;

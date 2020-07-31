@@ -3,7 +3,7 @@ package cn.weidea.wesports.web.controller.company;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.entity.CompanyField;
 import cn.weidea.wesports.redis.RedisUtils;
-import cn.weidea.wesports.service.impl.company.CompanyFieldServiceImpl;
+import cn.weidea.wesports.service.company.ICompanyFieldService;
 import cn.weidea.wesports.vo.CompanyFieldVo;
 import cn.weidea.wesports.web.service.impl.common.LoginUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -19,11 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/api/companyField")
 public class CompanyFieldController {
 
-    @Reference
-    private CompanyFieldServiceImpl companyFieldService;
-
-    @Autowired
-    private CompanyField companyField;
+    @Reference(version = "${wesports.service.version}")
+    private ICompanyFieldService companyFieldService;
 
     @Autowired
     private RedisUtils redisUtils;
@@ -31,6 +28,7 @@ public class CompanyFieldController {
     @RequestMapping(value = "/create",method = RequestMethod.POST)
     public CommonResult createField(@RequestParam CompanyFieldVo companyFieldVo, HttpServletRequest httpServletRequest){
        int userId =  Integer.parseInt(LoginUtils.getUserId(httpServletRequest,redisUtils));
+       CompanyField companyField = new CompanyField();
        companyField.setCompanyId(userId);
        companyField.setOccupy(0);
        companyField.setNumber(companyFieldVo.getNumber());
@@ -41,6 +39,7 @@ public class CompanyFieldController {
     @RequestMapping(value = "/delect",method = RequestMethod.DELETE)
     public CommonResult delectField(@RequestParam CompanyFieldVo companyFieldVo,HttpServletRequest httpServletRequest){
         int userId =  Integer.parseInt(LoginUtils.getUserId(httpServletRequest,redisUtils));
+        CompanyField companyField = new CompanyField();
         companyField.setCompanyId(userId);
         companyField.setType(companyFieldVo.getType());
         companyField.setNumber(companyFieldVo.getNumber());

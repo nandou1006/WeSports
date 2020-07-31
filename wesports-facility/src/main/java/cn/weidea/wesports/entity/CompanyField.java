@@ -1,8 +1,10 @@
 package cn.weidea.wesports.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName(value = "`cpy_field`")
 public class CompanyField {
 
     private int id;
