@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CommonResult implements Serializable {
+public class CommonResult<T> implements Serializable {
 
     private static final long serialVersionUID = 2745260992031618742L;
     /**
@@ -32,7 +32,7 @@ public class CommonResult implements Serializable {
     /**
      * 返回值对象
      */
-    private Object data;
+    private T data;
 
 
     /**
@@ -40,7 +40,7 @@ public class CommonResult implements Serializable {
      *
      * @param data
      */
-    public CommonResult(Object data) {
+    public CommonResult(T data) {
         this.data = data;
     }
 
@@ -59,8 +59,8 @@ public class CommonResult implements Serializable {
      * @param data
      * @return
      */
-    public static CommonResult success(Object data) {
-        return new CommonResult(data);
+    public static<T> CommonResult success(T data) {
+        return new CommonResult<>(data);
     }
 
     /**
@@ -70,7 +70,7 @@ public class CommonResult implements Serializable {
      * @return
      */
     public static CommonResult success(int errorCode, Object data) {
-        return new CommonResult(errorCode, "", data);
+        return new CommonResult<>(errorCode, "", data);
     }
 
     /**
@@ -81,7 +81,7 @@ public class CommonResult implements Serializable {
      */
     public static CommonResult failure(Integer code, String errorMessage) {
 
-        return new CommonResult(code, errorMessage, null);
+        return new CommonResult<>(code, errorMessage, null);
     }
 
     /**
@@ -91,7 +91,7 @@ public class CommonResult implements Serializable {
      * @return
      */
     public static CommonResult failure(ErrorCodeEnum errorCodeEnum) {
-        return new CommonResult(errorCodeEnum.getCode(), errorCodeEnum.getDesc(), null);
+        return new CommonResult<>(errorCodeEnum.getCode(), errorCodeEnum.getDesc(), null);
     }
 
 }

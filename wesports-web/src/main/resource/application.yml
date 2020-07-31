@@ -5,6 +5,12 @@ spring:
 ---
 spring:
   profiles: dev
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/wesports?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&useSSL=false
+      username: root
+      password: helloworld
+      filters: log4j,wall,mergeStat
+      driver-class-name: com.mysql.jdbc.Driver
 
 # service version
 wesports:
