@@ -1,6 +1,7 @@
 package cn.weidea.wesports.service.impl.common;
 
 import cn.weidea.wesports.redis.RedisUtils;
+import cn.weidea.wesports.service.common.CookieUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
