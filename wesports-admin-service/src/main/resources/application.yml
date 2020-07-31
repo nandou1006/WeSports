@@ -24,15 +24,14 @@ wesports:
 # Dubbo Config properties
 dubbo:
   application:
-    id: wesports-common-service-dev
-    name: wesports-common-service-dev
-    qos-enable: false
+    id: wesports-admin-service-dev
+    name: wesports-admin-service-dev
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181
   protocol:
     name: dubbo
-    port: 20880
+    port: 20881
   provider:
     timeout: 300000
 
@@ -54,13 +53,13 @@ wesports:
 # Dubbo Config properties
 dubbo:
   application:
-    id: wesports-common-service
-    name: wesports-common-service
+    id: wesports-admin-service
+    name: wesports-admin-service
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181
   protocol:
     name: dubbo
-    port: 20880
+    port: 20881
   provider:
     timeout: 5000

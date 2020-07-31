@@ -1,4 +1,4 @@
-package cn.weidea.wesports.controller.order;
+package cn.weidea.wesports.web.controller.order;
 
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.entity.OrderDto;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 public class OrderController {
 
-    @Reference(interfaceClass = OrderService.class)
+    @Reference(version = "${wespotrs.service.version}")
     private OrderService orderService;
 
     /**

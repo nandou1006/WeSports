@@ -26,17 +26,21 @@ import java.util.Map;
 @Component
 public class LoginServiceImpl implements ILoginService {
 
-    @Autowired
-    private AdminMapper adminMapper;
+    private final AdminMapper adminMapper;
+
+    private final UserMapper userMapper;
+
+    private final CompanyMapper companyMapper;
+
+    private final RedisUtils redisUtils;
 
     @Autowired
-    private UserMapper userMapper;
-
-    @Autowired
-    private CompanyMapper companyMapper;
-
-    @Autowired
-    private RedisUtils redisUtils;
+    public LoginServiceImpl(AdminMapper adminMapper, UserMapper userMapper, CompanyMapper companyMapper, RedisUtils redisUtils) {
+        this.adminMapper = adminMapper;
+        this.userMapper = userMapper;
+        this.companyMapper = companyMapper;
+        this.redisUtils = redisUtils;
+    }
 
     @Override
     public CommonResult login(LoginVo loginVo) {
@@ -51,7 +55,7 @@ public class LoginServiceImpl implements ILoginService {
             List<Admin> admins = adminMapper.selectList(wrapper);
             if (admins != null && admins.size() > 0) {
                 // 写入redis
-                String token = TokenUtils.generateToken(loginVo.getUserName(), loginVo.getPassword());
+                String token = TokenUtils.generateToken(loginVo.getUsername(), loginVo.getPassword());
                 redisUtils.set(token, String.valueOf(admins.get(0).getId()), 7200);
                 Map<String, String> result = new HashMap<>(2);
                 result.put("token", token);
@@ -64,7 +68,7 @@ public class LoginServiceImpl implements ILoginService {
             List<Company> companies = companyMapper.selectList(wrapper);
             if (companies != null && companies.size() > 0) {
                 // 写入redis
-                String token = TokenUtils.generateToken(loginVo.getUserName(), loginVo.getPassword());
+                String token = TokenUtils.generateToken(loginVo.getUsername(), loginVo.getPassword());
                 redisUtils.set(token, String.valueOf(companies.get(0).getId()), 7200);
                 Map<String, String> result = new HashMap<>(2);
                 result.put("token", token);
@@ -77,7 +81,7 @@ public class LoginServiceImpl implements ILoginService {
             List<User> users = userMapper.selectList(wrapper);
             if (users != null && users.size() > 0) {
                 // 写入redis
-                String token = TokenUtils.generateToken(loginVo.getUserName(), loginVo.getPassword());
+                String token = TokenUtils.generateToken(loginVo.getUsername(), loginVo.getPassword());
                 redisUtils.set(token, String.valueOf(users.get(0).getId()), 7200);
                 Map<String, String> result = new HashMap<>(2);
                 result.put("token", token);
@@ -89,7 +93,7 @@ public class LoginServiceImpl implements ILoginService {
 
     private Map constructMapByLoginVo(LoginVo loginVo) {
         Map<String, Object> map = new HashMap<>();
-        map.put("username", loginVo.getUserName());
+        map.put("username", loginVo.getUsername());
         map.put("password", loginVo.getPassword());
         return map;
     }
