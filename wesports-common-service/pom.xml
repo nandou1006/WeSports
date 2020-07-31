@@ -40,11 +40,5 @@
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-utils</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-            <version>2.6.2</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 </project>
