@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>wesports</artifactId>
+        <groupId>cn.weidea</groupId>
+        <version>1.0.dev</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>wesports-sms-service</artifactId>
+    <description>短信发送平台服务</description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-interface</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!-- 榛子云短信平台 -->
+        <dependency>
+            <groupId>com.zhenzikj</groupId>
+            <artifactId>zhenzisms</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -41,8 +41,8 @@ public class UserServiceTest {
     @Test
     public void test03() {
         UserVo userVo = new UserVo();
-        userVo.setUsername("asd");
-        userVo.setPassword("asd");
+        userVo.setUsername("asdad");
+        userVo.setPassword("asdasd");
         CommonResult commonResult = userService.insertUser(userVo);
         log.info("{}", commonResult);
     }
