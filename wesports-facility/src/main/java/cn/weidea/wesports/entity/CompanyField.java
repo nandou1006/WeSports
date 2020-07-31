@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class CompanyField {
 
+    private int id;
+
     private int companyId;
 
     private String type;

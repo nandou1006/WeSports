@@ -21,6 +21,10 @@
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-interface</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-redis</artifactId>
+        </dependency>
     </dependencies>
 
 
