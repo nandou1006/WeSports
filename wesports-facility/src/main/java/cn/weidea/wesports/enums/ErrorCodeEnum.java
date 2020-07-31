@@ -10,7 +10,10 @@ public enum ErrorCodeEnum {
     SUCCESS(200, "成功"),
 
     // 用户名与密码不匹配
-    MISMATCH(400, "账户名与密码不匹配，请重新输入");
+    MISMATCH(400, "账户名与密码不匹配，请重新输入"),
+
+    // 人脸搜索失败
+    FACENOTEXIST(500, "人脸验证失败，用户不存在");
 
     /**
      * 错误码

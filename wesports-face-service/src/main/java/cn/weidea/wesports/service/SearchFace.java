@@ -1,4 +1,4 @@
-package cn.weidea.wesports;
+package cn.weidea.wesports.service;
 
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
