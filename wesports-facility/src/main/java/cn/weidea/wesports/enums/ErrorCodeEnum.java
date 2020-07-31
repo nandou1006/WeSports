@@ -10,7 +10,13 @@ public enum ErrorCodeEnum {
     SUCCESS(200, "成功"),
 
     // 用户名与密码不匹配
-    MISMATCH(400, "账户名与密码不匹配，请重新输入");
+    MISMATCH(400, "账户名与密码不匹配，请重新输入"),
+
+    // 用户更新个人信息失败
+    UPDATE_PERSONAL_DATA_FAIL(400, "用户更新个人信息失败"),
+
+    // 注册用户失败
+    REGISTER_USER_FAIL(400, "用户注册失败");
 
     /**
      * 错误码

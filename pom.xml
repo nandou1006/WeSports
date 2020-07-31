@@ -12,6 +12,7 @@
         <module>wesports-company</module>
         <module>wesports-order</module>
         <module>wesports-common-service</module>
+        <module>wesports-user-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
