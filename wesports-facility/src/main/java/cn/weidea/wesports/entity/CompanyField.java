@@ -3,9 +3,13 @@ package cn.weidea.wesports.entity;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @TableName(value = "`cpy_field`")
-public class CompanyField {
+public class CompanyField implements Serializable {
+
+    private static final long serialVersionUID = 6012602461163843866L;
 
     private int id;
 
