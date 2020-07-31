@@ -6,7 +6,12 @@
         <module>wesports-facility</module>
         <module>wesports-interface</module>
         <module>wesports-web</module>
-        <module>wesports-face-service</module>
+        <module>wesports-admin-service</module>
+        <module>wesports-utils</module>
+        <module>wesports-redis</module>
+        <module>wesports-company</module>
+        <module>wesports-order</module>
+        <module>wesports-common-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -27,10 +32,17 @@
         <dubbo-starter.version>0.2.0</dubbo-starter.version>
         <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
         <springboot.version>2.3.2.RELEASE</springboot.version>
+        <fastjson.version>1.2.62</fastjson.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
@@ -40,7 +52,6 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <optional>true</optional>
                 <version>${lombok.version}</version>
             </dependency>
 
@@ -80,19 +91,26 @@
                 <artifactId>wesports-facility</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.weidea</groupId>
+                <artifactId>wesports-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
     </dependencies>
-
 </project>

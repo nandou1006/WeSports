@@ -9,13 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesports-interface</artifactId>
-    <description>服务接口模块</description>
+    <artifactId>wesports-redis</artifactId>
+    <description>redis 服務</description>
 
     <dependencies>
         <dependency>
-            <groupId>cn.weidea</groupId>
-            <artifactId>wesports-facility</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -9,13 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wesports-interface</artifactId>
-    <description>服务接口模块</description>
-
+    <artifactId>wesports-company</artifactId>
     <dependencies>
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>cn.weidea</groupId>
-            <artifactId>wesports-facility</artifactId>
+            <artifactId>wesports-interface</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>
