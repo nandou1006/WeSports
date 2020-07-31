@@ -6,6 +6,7 @@
         <module>wesports-facility</module>
         <module>wesports-interface</module>
         <module>wesports-web</module>
+        <module>wesports-face-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -93,4 +94,5 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
 </project>
