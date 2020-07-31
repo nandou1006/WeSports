@@ -18,11 +18,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
@@ -44,8 +39,6 @@
         <dependency>
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-utils</artifactId>
-            <version>1.0.dev</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

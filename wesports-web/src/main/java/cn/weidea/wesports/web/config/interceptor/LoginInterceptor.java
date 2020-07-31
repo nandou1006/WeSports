@@ -1,6 +1,6 @@
-package cn.weidea.wesports.config.interceptor;
+package cn.weidea.wesports.web.config.interceptor;
 
-import cn.weidea.wesports.service.impl.common.LoginUtils;
+import cn.weidea.wesports.web.service.impl.common.LoginUtils;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.redis.RedisUtils;
 import com.alibaba.fastjson.JSONObject;
@@ -26,6 +26,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
+        log.info("进入拦截器，拦截路径为：{}", request.getRequestURI());
         // 检查登录状态
         boolean hasLogin = LoginUtils.hasLogin(request, response, redisUtils);
 
