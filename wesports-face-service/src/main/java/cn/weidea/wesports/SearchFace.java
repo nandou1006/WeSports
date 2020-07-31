@@ -19,7 +19,10 @@ public class SearchFace {
         SearchFaceRequest request = new SearchFaceRequest();
         request.setRegionId("cn-shanghai");
         request.setDbName("default");
-        request.setImageUrl("https://weideapicture2.oss-cn-shanghai.aliyuncs.com/1_ys.jpg");
+        //request.setImageUrl("https://weideapicture2.oss-cn-shanghai.aliyuncs.com/1_ys.jpg");//ys人脸
+        request.setImageUrl("https://weideapicture2.oss-cn-shanghai.aliyuncs.com/2_ys.jpg");//ys人脸
+        //request.setImageUrl("https://weideapicture2.oss-cn-shanghai.aliyuncs.com/error.png");//非人脸图片
+
         request.setLimit(5);
 
         try {
