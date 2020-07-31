@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     clickB () {
-      this.$router.push({ path: '/select' })
+      this.$router.push({ path: '/gymDetail' })
     },
     clickReservation () {
       this.$router.push({ path: '/' })
