@@ -33,6 +33,7 @@
         <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
         <springboot.version>2.3.2.RELEASE</springboot.version>
         <fastjson.version>1.2.62</fastjson.version>
+        <joda-time.version>2.10.1</joda-time.version>
     </properties>
 
     <dependencyManagement>
@@ -109,6 +110,13 @@
                 <artifactId>wesports-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
