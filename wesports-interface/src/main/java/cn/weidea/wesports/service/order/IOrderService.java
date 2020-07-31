@@ -6,7 +6,7 @@ import cn.weidea.wesports.vo.OrderVO;
 
 import java.util.List;
 
-public interface OrderService {
+public interface IOrderService {
     //创建
     boolean create(OrderVO orderVO);
     //获取某个用户的订单列表

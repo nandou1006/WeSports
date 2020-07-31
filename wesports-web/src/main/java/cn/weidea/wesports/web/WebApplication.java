@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDubbo
-@ComponentScan({"cn.weidea.wesports.*"})
+@ComponentScan({"cn.weidea.wesports.redis","cn.weidea.wesports.web"})
 public class WebApplication {
 
     public static void main(String[] args) {

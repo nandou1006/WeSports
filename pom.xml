@@ -9,9 +9,12 @@
         <module>wesports-admin-service</module>
         <module>wesports-utils</module>
         <module>wesports-redis</module>
+        <module>wesports-order-service</module>
         <module>wesports-company-service</module>
         <module>wesports-order-service</module>
         <module>wesports-common-service</module>
+        <module>wesports-user-service</module>
+        <module>wesports-sms-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
