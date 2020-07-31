@@ -1,7 +1,5 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
-    <div class="div1 div-col"/>
-    <div class="div2 div-col" @click="selectTime"/>
   </div>
 </template>
 
@@ -10,7 +8,7 @@ export default {
   data () {
     return {
       backgroundImg: {
-        backgroundImage: 'url(' + require('@/assets/gymDetail.jpg') + ')',
+        backgroundImage: 'url(' + require('@/assets/myOrder.jpg') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
@@ -18,23 +16,15 @@ export default {
     }
   },
   methods: {
-    selectTime () {
-      this.$router.push({ path: '/select' })
-    }
   }
 }
 </script>
 
 <style scoped>
 .container{
-  height: 792px;
-}
-.div1{
-  height: 362px;
-}
-.div2{
-  height: 50px;
+  height: 1334px;
 }
 .div-col{
+  width: 734px;
 }
 </style>

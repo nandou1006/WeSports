@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       backgroundImg: {
-        backgroundImage: 'url(' + require('@/assets/choose1.jpg') + ')',
+        backgroundImage: 'url(' + require('@/assets/select.jpg') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
@@ -45,32 +45,28 @@ export default {
 
 <style scoped>
 .container{
-  height: 1623px;
-  font-size: 30px;
+  height: 792px;
+  font-size: 20px;
 }
 .div1{
-  height: 200px;
+  height: 88px;
 }
 .div2{
-  height: 550px;
+  height: 400px;
   display: flex;
 }
 .select-box{
-  width: 350px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .div3{
-  height: 770px;
+  height: 194px;
 }
 .div4{
-  height: 123px;
+  height: 60px;
 }
 .div-col{
-  width: 734px;
-}
-input{
- padding: 10px 0 0 0;
 }
 </style>

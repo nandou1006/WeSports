@@ -42,26 +42,25 @@ export default {
 
 <style scoped>
 .container{
-  height: 1623px;
+  height: 792px;
 }
 .div1{
-  height: 654px;
+  height: 330px;
 }
 .div2{
-  height: 212px;
+  height: 130px;
 }
 .div3{
-  height: 630px;
+  height: 260px;
 }
 .div4{
-  height: 127px;
+  height: 72px;
   display: flex;
 }
 .div-row{
-  height: 127px;
-  width: 250px;
+  height: 72px;
+  width: 138px;
 }
 .div-col{
-  width: 734px;
 }
 </style>
