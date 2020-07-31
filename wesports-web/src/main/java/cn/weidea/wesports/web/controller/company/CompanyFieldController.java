@@ -3,7 +3,7 @@ package cn.weidea.wesports.web.controller.company;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.entity.CompanyField;
 import cn.weidea.wesports.redis.RedisUtils;
-import cn.weidea.wesports.service.impl.company.CompanyFieldServiceImpl;
+import cn.weidea.wesports.service.company.ICompanyFieldService;
 import cn.weidea.wesports.vo.CompanyFieldVo;
 import cn.weidea.wesports.web.service.impl.common.LoginUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CompanyFieldController {
 
     @Reference
-    private CompanyFieldServiceImpl companyFieldService;
+    private ICompanyFieldService companyFieldService;
 
     @Autowired
     private CompanyField companyField;
