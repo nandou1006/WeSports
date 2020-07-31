@@ -7,7 +7,7 @@ import lombok.Data;
 @TableName("company")
 public class Company {
 
-    private String id;
+    private int id;
 
     private String uscc;
 

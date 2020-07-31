@@ -26,25 +26,18 @@ wesports:
 # Dubbo Config properties
 dubbo:
   application:
-    id: wesportrs-web-dev
-    name: wesportrs-web-dev
+    id: wesportrs-company-dev
+    name: wesportrs-company-dev
     qos-enable: false
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181
   protocol:
     name: dubbo
-    port: 20880
+    port: 20883
   provider:
     timeout: 300000
 
-#  registry:
-#    protocol: zookeeper
-#    address: 106.52.54.67:2181
-
-# web port
-server:
-  port: 9999
 
 ---
 spring:
@@ -64,11 +57,9 @@ redis:
 # Dubbo Config properties
 dubbo:
   application:
-    id: wesports-web
-    name: wesports-web
+    id: wesports-company
+    name: wesports-company
     registry:
       protocol: zookeeper
       address: 106.52.54.67:2181
-# web port
-server:
-  port: 9999
+

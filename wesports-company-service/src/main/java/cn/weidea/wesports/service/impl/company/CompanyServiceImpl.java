@@ -12,12 +12,12 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Repository
-@Service(version = "${wesports.service.version}",interfaceClass = ICompanyService.class)
+@Component
+@Service(version = "${wesports.service.version}")
 public class CompanyServiceImpl implements ICompanyService {
 
     @Autowired
