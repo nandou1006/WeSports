@@ -26,6 +26,7 @@ dubbo:
   application:
     id: wesports-common-service-dev
     name: wesports-common-service-dev
+    qos-enable: false
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181

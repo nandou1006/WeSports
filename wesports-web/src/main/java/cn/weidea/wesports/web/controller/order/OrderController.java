@@ -1,4 +1,4 @@
-package cn.weidea.wesports.controller.order;
+package cn.weidea.wesports.web.controller.order;
 
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.entity.OrderDto;
@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/")
 public class OrderController {
 
-    @Reference(interfaceClass = OrderService.class)
-    private OrderService orderService;
+//    @Reference(version = "${wespotrs.service.version}")
+//    private OrderService orderService;
 
     /**
      * 查询用户订单列表
+     *
      * @param orderVO
      * @return
      */
