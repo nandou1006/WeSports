@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Reservation from '@/components/Reservation'
+import Selector from '@/components/Selector'
 
 Vue.use(Router)
 
@@ -10,6 +11,11 @@ export default new Router({
       path: '/',
       name: 'Reservation',
       component: Reservation
+    },
+    {
+      path: '/select',
+      name: 'Selector',
+      component: Selector
     }
   ]
 })
