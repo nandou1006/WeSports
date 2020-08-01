@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+
 public class FaceImg2FaceDBVo implements Serializable {
 
 

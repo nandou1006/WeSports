@@ -8,8 +8,7 @@ import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class FaceImgUploadVo implements Serializable {
-
+    private String imgUrl;
 
 }
