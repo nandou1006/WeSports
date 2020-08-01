@@ -24,13 +24,22 @@ export default {
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
       },
-      user: 'nicai',
-      password: '1234'
+      user: 'test',
+      password: 'test'
     }
   },
   methods: {
     handleLogin () {
-      console.log(this.user, this.password)
+      let that = this
+      that.$axios.post('http://10.39.193.95:9999/api/login', {
+        username: that.user,
+        password: that.password,
+        groupId: 'U'
+      }).then(res => {
+        console.log(res)
+      }, err => {
+        console.log(err)
+      })
     }
   }
 }
@@ -38,28 +47,28 @@ export default {
 
 <style scoped>
 .container{
-  height: 2872px;
+  height: 1436px;
   margin: 0 auto;
 }
 .div-col{
-  width: 1500px;
+  width: 750px;
 }
 .top{
-  height: 900px;
+  height: 450px;
 }
 .middle{
-  height: 1000px;
+  height: 500px;
   display: flex;
   flex-direction: column;
 }
 .row{
-  height: 333px;
-  margin: 150px 150px 0 150px;
+  height: 166px;
+  margin: 75px 75px 0 75px;
 }
 input[type='text']{
-  margin-top: 20px;
-  height: 163px;
-  width: 1200px;
-  font-size: 80px;
+  margin-top: 10px;
+  height: 91px;
+  width: 600px;
+  font-size: 40px;
 }
 </style>

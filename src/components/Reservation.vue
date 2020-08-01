@@ -4,9 +4,9 @@
     <div class="div2 div-col" @click="clickB"/>
     <div class="div3 div-col"/>
     <div class="div4 div-col">
-      <div class="tab1 div-row" @click="clickReservation"/>
-      <div class="tab2 div-row" @click="clickStore"/>
-      <div class="tab3 div-row" @click="clickMine"/>
+      <div class="div-row" @click="clickReservation"/>
+      <div class="div-row" @click="clickStore"/>
+      <div class="div-row" @click="clickMine"/>
     </div>
   </div>
 </template>
@@ -42,27 +42,27 @@ export default {
 
 <style scoped>
 .container{
-  height: 2872px;
+  height: 1426px;
   margin: 0 auto;
 }
 .top{
-  height: 1200px;
+  height: 600px;
 }
 .div2{
-  height: 440px;
+  height: 220px;
 }
 .div3{
-  height: 980px;
+  height: 490px;
 }
 .div4{
-  height: 252px;
+  height: 126px;
   display: flex;
 }
 .div-row{
-  height: 252px;
-  width: 500px;
+  height: 126px;
+  width: 250px;
 }
 .div-col{
-  width: 1500px;
+  width: 750px;
 }
 </style>

@@ -2,10 +2,16 @@
   <div class="container div-col" :style="backgroundImg">
     <div class="div1 div-col"/>
     <div class="div2 div-col">
-      <div class="div-row"/>
-      <div class="div-row"/>
-      <div class="div-row" @click="myOrder"/>
-      <div class="div-row"/>
+      <div class="div-row1"/>
+      <div class="div-row1"/>
+      <div class="div-row1" @click="myOrder"/>
+      <div class="div-row1"/>
+    </div>
+    <div class="div3 div-col"/>
+    <div class="div4 div-col">
+      <div class="div-row" @click="clickReservation"/>
+      <div class="div-row" @click="clickStore"/>
+      <div class="div-row" @click="clickMine"/>
     </div>
   </div>
 </template>
@@ -25,6 +31,15 @@ export default {
   methods: {
     myOrder () {
       this.$router.push({ path: '/myOrder' })
+    },
+    clickReservation () {
+      this.$router.push({ path: '/' })
+    },
+    clickStore () {
+      this.$router.push({ path: '/store' })
+    },
+    clickMine () {
+      this.$router.push({ path: '/mine' })
     }
   }
 }
@@ -35,15 +50,26 @@ export default {
   height: 1436px;
 }
 .div1{
-  height: 230px;
+  height: 410px;
 }
 .div2{
-  height: 90px;
+  height: 160px;
   display: flex;
   justify-content: space-around;
 }
+.div3{
+  height: 740px;
+}
+.div4{
+  height: 126px;
+  display: flex;
+}
+.div-row1{
+  width: 187px;
+}
 .div-row{
-  width: 100px;
+  height: 126px;
+  width: 250px;
 }
 .div-col{
 }
