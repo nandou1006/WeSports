@@ -3,6 +3,7 @@ package cn.weidea.wesports.service.impl;
 import cn.weidea.wesports.entity.*;
 import cn.weidea.wesports.mapper.CompanyMapper;
 import cn.weidea.wesports.mapper.OrderMapper;
+import cn.weidea.wesports.service.blockchain.service.SetOrderOnBlockChain;
 import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -27,6 +28,9 @@ public class OrderServiceImpl implements IOrderService {
 
     @Autowired
     private CompanyMapper companyMapper;
+
+    @Autowired
+    private SetOrderOnBlockChain setOrderOnBlockChain;
 
     @Override
     public OrderDto create(OrderVO orderVO) {
@@ -111,6 +115,14 @@ public class OrderServiceImpl implements IOrderService {
             dto.setHealth("不健康");
             dto.setStat(order.getStat());
         }
+        //数据上链
+        OrderDto orderDto = new OrderDto();
+        BeanUtils.copyProperties(order, orderDto);
+        String transactionHash = setOrderOnBlockChain.set(userId, orderDto);
+        order.setBlockToken(transactionHash);
+        QueryWrapper<Order> qw = new QueryWrapper<>();
+        qw.eq("order_id",order.getOrderId());
+        int result = orderMapper.update(order,qw);//更新订单的blockToken
         return dto;
     }
 

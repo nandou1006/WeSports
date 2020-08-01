@@ -7,6 +7,6 @@ public class testChain {
         OrderDto orderDto = new OrderDto();
         orderDto.setCompanyId(666);
         SetOrderOnBlockChain setOrderOnBlockChain = new SetOrderOnBlockChain();
-        setOrderOnBlockChain.set(2, orderDto);
+        setOrderOnBlockChain.set("2", orderDto);
     }
 }

@@ -19,7 +19,7 @@ public class SetOrderOnBlockChain {
 
     final String s = "{\"contractAbi\":[{\"constant\":false,\"funcId\":1,\"inputs\":[{\"name\":\"id\",\"type\":\"uint256\"},{\"name\":\"data\",\"type\":\"string\"}],\"name\":\"set\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"contractAddress\":\"0xef396ba8ea7f7003c054f53db11ecc789a5e1dba\",\"contractName\":\"dataStorage\",\"funcName\":\"set\",\"funcParam\":[\"userId\",\"orderDto\"],\"groupId\":\"1\",\"useAes\":false,\"user\":\"0xf4f55528bc30da2284b3d81a7a0e2df9c72df8f7\"}\n";
 
-    public String set(int userId,OrderDto orderDto){
+    public String set(String userId,OrderDto orderDto){
         String orderString = JSONObject.toJSONString(orderDto);
         ChainVo chainVo = changeToChainVo(userId,orderString);
         return request(chainVo); //Todo 上传订单至区块链
@@ -38,10 +38,10 @@ public class SetOrderOnBlockChain {
         return depositEvidence.getTransactionHash();
     }
 
-    private ChainVo changeToChainVo(int userId, String orderDto) {
+    private ChainVo changeToChainVo(String userId, String orderDto) {
 
         ChainVo chainVo = JSONObject.parseObject(s, ChainVo.class);
-        chainVo.setFuncParam(Arrays.asList(String.valueOf(userId),orderDto));
+        chainVo.setFuncParam(Arrays.asList(userId,orderDto));
         return chainVo;
     }
 }
