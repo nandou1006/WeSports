@@ -1,15 +1,12 @@
-package cn.weidea.wesports.controller;
+package cn.weidea.wesports.web.controller.face;
 import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.entity.FaceImgUploadDTO;
-import cn.weidea.wesports.entity.FaceValidationDTO;
 import cn.weidea.wesports.enums.ErrorCodeEnum;
-import cn.weidea.wesports.service.FaceService;
-import cn.weidea.wesports.vo.FaceImgUploadVo;
+import cn.weidea.wesports.service.face.IFaceService;
 import cn.weidea.wesports.vo.FaceValidationVo;
+import com.alibaba.dubbo.config.annotation.Reference;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,14 +20,14 @@ import java.util.Date;
 @Slf4j
 public class FaceValidationController{
 
-    @Autowired
-    private  FaceService faceService;
+    @Reference(version = "${wesports.service.version}")
+    private IFaceService faceService;
 
     private static final Logger logger = LoggerFactory.getLogger(FaceValidationController.class);
 
-    @GetMapping (value="/api/face/validation")
+    @PostMapping (value="/face/validation")
     public Object FaceValidation (@RequestBody FaceValidationVo vvo){
-        logger.info("FaceValidation Controller");
+        logger.info("FaceValidation-Controller--{}.",vvo.getImgUrl());
         return faceService.FaceValidation(vvo);
     }
 
@@ -41,7 +38,7 @@ public class FaceValidationController{
      * @return
      * @throws IOException
      */
-    @PostMapping(value = "/api/fileupload")
+    @PostMapping(value = "/face/fileupload")
     public Object FaceImgUpload(HttpServletRequest request, @RequestParam(value = "fileData", required = false) MultipartFile multipartFile) throws IOException {
         logger.info("FaceImgUpload Controller");
 
@@ -54,7 +51,8 @@ public class FaceValidationController{
         }
         log.info(file.getAbsolutePath());
         try{
-            multipartFile.transferTo(new File(file + "\\" + fileName + "." + "jpg"));//保存文件
+            file = new File(file + "\\" + fileName + "." + "jpg");
+            multipartFile.transferTo(file);//保存文件
         }catch(IOException e){
             return CommonResult.failure(ErrorCodeEnum.IMGUPLOADFAIL);
         }
