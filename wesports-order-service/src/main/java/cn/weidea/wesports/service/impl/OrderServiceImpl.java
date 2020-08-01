@@ -3,7 +3,7 @@ package cn.weidea.wesports.service.impl;
 import cn.weidea.wesports.entity.Order;
 import cn.weidea.wesports.entity.OrderDto;
 import cn.weidea.wesports.mapper.OrderMapper;
-import cn.weidea.wesports.service.order.OrderService;
+import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -16,8 +16,8 @@ import javax.annotation.Resource;
 import java.util.*;
 
 @Component
-@Service(version = "${wesports.service.version}", interfaceClass = OrderService.class)
-public class OrderServiceImpl implements OrderService {
+@Service(version = "${wesports.service.version}", interfaceClass = IOrderService.class)
+public class OrderServiceImpl implements IOrderService {
 
     @Autowired
     private OrderMapper orderMapper;

@@ -1,5 +1,4 @@
 package cn.weidea.wesports.web.controller.login;
-
 import cn.weidea.wesports.redis.RedisUtils;
 import cn.weidea.wesports.service.common.login.ILoginService;
 import cn.weidea.wesports.vo.LoginVo;
