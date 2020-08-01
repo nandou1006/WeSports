@@ -1,5 +1,6 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
+    <div class="top-bar" @click="back"/>
     <div class="div1 div-col"/>
     <div class="div2 div-col" @click="selectTime"/>
   </div>
@@ -20,6 +21,9 @@ export default {
   methods: {
     selectTime () {
       this.$router.push({ path: '/select' })
+    },
+    back () {
+      history.back()
     }
   }
 }
@@ -29,8 +33,11 @@ export default {
 .container{
   height: 1436px;
 }
+.top-bar{
+  height: 90px;
+}
 .div1{
-  height: 660px;
+  height: 570px;
 }
 .div2{
   height: 80px;

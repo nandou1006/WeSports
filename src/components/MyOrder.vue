@@ -1,6 +1,6 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
-    <div class="div1"/>
+    <div class="div1" @click="back"/>
     <div class="div2">
       <div class="order"/>
       <div class="operate">
@@ -26,6 +26,9 @@ export default {
   methods: {
     orderDetail () {
       this.$router.push({ path: '/orderDetail' })
+    },
+    back () {
+      history.back()
     }
   }
 }

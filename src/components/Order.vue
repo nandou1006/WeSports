@@ -1,5 +1,6 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
+    <div class="top-bar" @click="back"/>
     <div class="div1 div-col"/>
     <div class="div2 div-col">
       <div class="checkbox">
@@ -51,6 +52,9 @@ export default {
       }).then(res => {
         console.log(res.data)
       })
+    },
+    back () {
+      history.back()
     }
   }
 }
@@ -65,8 +69,11 @@ export default {
 .text{
   font-size: 30px;
 }
+.top-bar{
+  height: 90px;
+}
 .div1{
-  height: 1190px;
+  height: 1100px;
 }
 .div2{
   height: 130px;

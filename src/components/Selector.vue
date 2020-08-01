@@ -1,5 +1,6 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
+    <div class="top-bar" @click="back"/>
     <div class="div1 div-col"/>
     <div class="div2 div-col">
       <div class="select-box">
@@ -60,6 +61,9 @@ export default {
         endTime: `${date}T${rangeEnd}:00`
       }
       return res
+    },
+    back () {
+      history.back()
     }
   }
 }
@@ -71,8 +75,11 @@ export default {
   font-size: 30px;
   color: #405080;
 }
+.top-bar{
+  height: 90px;
+}
 .div1{
-  height: 220px;
+  height: 130px;
 }
 .div2{
   height: 600px;
