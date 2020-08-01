@@ -1,6 +1,5 @@
 package cn.weidea.wesports.service.impl.user;
 
-import cn.weidea.wesports.config.CustomIdGenerator;
 import cn.weidea.wesports.entity.CommonResult;
 import cn.weidea.wesports.entity.User;
 import cn.weidea.wesports.entity.UserInfo;
@@ -10,6 +9,7 @@ import cn.weidea.wesports.mapper.UserMapper;
 import cn.weidea.wesports.service.user.IUserService;
 import cn.weidea.wesports.vo.UserInfoVo;
 import cn.weidea.wesports.vo.UserVo;
+import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import org.springframework.beans.BeanUtils;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
-//@Service(version = "${sports.service.version}")
+@Service(version = "${wesports.service.version}")
 @Component
 public class UserServiceImpl implements IUserService {
 
