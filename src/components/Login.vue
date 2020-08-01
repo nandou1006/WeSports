@@ -36,11 +36,8 @@ export default {
         password: that.password,
         groupId: 'U'
       }).then(res => {
-        console.log(res)
-      }, err => {
-        console.log(err)
-      }).catch(err => {
-        console.log(err)
+        console.log(res.data.data.token)
+        that.$router.push({ path: '/' })
       })
     }
   }
