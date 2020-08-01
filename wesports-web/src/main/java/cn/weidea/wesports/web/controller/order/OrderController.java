@@ -60,7 +60,8 @@ public class OrderController {
         return CommonResult.success(orderCheckDto);
     }
 
-    //
+
+    @CrossOrigin
     @RequestMapping(value = "/api/v1/orders/company", method = RequestMethod.POST)
     public Object getCompanyOrders(@RequestBody OrderVO orderVO) {
         List<CompanyOrderDto> dtos = IOrderService.getCompanyOrders(orderVO.getCompanyId());
