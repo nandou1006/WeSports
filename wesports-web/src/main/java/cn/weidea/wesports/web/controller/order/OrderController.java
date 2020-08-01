@@ -1,6 +1,7 @@
 package cn.weidea.wesports.web.controller.order;
 
 import cn.weidea.wesports.entity.CommonResult;
+import cn.weidea.wesports.entity.OrderCheckDto;
 import cn.weidea.wesports.entity.OrderDto;
 import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
@@ -42,5 +43,16 @@ public class OrderController {
         return CommonResult.failure(9000, "创建失败");
     }
 
+    @RequestMapping(value = "order/pay", method = RequestMethod.POST)
+    public CommonResult payOrder(@RequestBody OrderVO orderVO) {
+        OrderDto dto = IOrderService.payOrder(orderVO.getOrderId());
+        return CommonResult.success(dto);
+    }
+
+    @RequestMapping(value = "/order/check", method = RequestMethod.POST)
+    public CommonResult check(@RequestBody OrderVO orderVO) {
+        OrderCheckDto orderCheckDto = IOrderService.check(orderVO.getUserId(), orderVO.getCompanyId());
+        return CommonResult.success(orderCheckDto);
+    }
 
 }

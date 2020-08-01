@@ -17,7 +17,7 @@ public class OrderVO implements Serializable{
 
     private static final long serialVersionUID = 8419526607958544447L;
 
-    private Integer userId;
+    private String userId;
 
     private Integer companyId;
 
