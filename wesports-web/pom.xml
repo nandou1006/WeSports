@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
@@ -25,6 +30,23 @@
         <dependency>
             <groupId>cn.weidea</groupId>
             <artifactId>wesports-interface</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.6.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

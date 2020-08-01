@@ -1,0 +1,66 @@
+spring:
+  profiles:
+    active: dev
+  redis:
+    host: 106.52.54.67
+    port: 6379
+    password: wesports
+
+---
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.52.54.67:3306/wesports?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Wesport2020@
+
+
+# service version
+wesports:
+  service:
+    version: 1.0.dev
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-common-service-dev
+    name: wesports-common-service-dev
+    qos-enable: false
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 300000
+
+---
+spring:
+  profiles: uat
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.0.3:3306/wesports?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: Wesport2020@
+
+
+# service version
+wesports:
+  service:
+    version: 1.0
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-common-service
+    name: wesports-common-service
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 5000

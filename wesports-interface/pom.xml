@@ -12,4 +12,10 @@
     <artifactId>wesports-interface</artifactId>
     <description>服务接口模块</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>cn.weidea</groupId>
+            <artifactId>wesports-facility</artifactId>
+        </dependency>
+    </dependencies>
 </project>

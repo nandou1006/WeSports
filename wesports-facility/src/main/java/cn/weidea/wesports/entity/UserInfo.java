@@ -4,30 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfo {
-    //id
-    private String id;
-    //用户id
-    private String userId;
 
-    private String userName;
+    private int id;
+
+    private String name;
 
     private String sex;
 
     private String profile;
 
-    private String age;
+    private int age;
 
-    //积分
-    private int points;
+    private int point;
 
-    private String iconUrl;
+    private String icon;
 
-    private String balance;
+    private BigDecimal balance;
 
-    private String remarks;
-
+    private String remark;
 }
