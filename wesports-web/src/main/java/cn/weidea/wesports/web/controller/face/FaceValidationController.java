@@ -29,6 +29,7 @@ public class FaceValidationController {
      * @throws IOException
      */
     @PostMapping(value = "/face/validation")
+    @CrossOrigin
     public Object FaceValidation(HttpServletRequest request, @RequestParam(value = "fileData", required = false) MultipartFile multipartFile, @RequestParam(value = "companyId", required = false) String companyId) throws IOException {
         logger.info("FaceImgUpload Controller");
         String basePath = request.getServletContext().getRealPath("/");

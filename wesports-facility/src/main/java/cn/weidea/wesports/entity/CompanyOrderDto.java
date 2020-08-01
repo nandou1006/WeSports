@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyOrderDto implements Serializable{
+public class CompanyOrderDto implements Serializable {
     private static final long serialVersionUID = 8419526607958544447L;
 
     private String orderId;
@@ -30,6 +30,8 @@ public class CompanyOrderDto implements Serializable{
     private Integer points;
 
     private BigDecimal cost;
+
+    private String blockId;
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
