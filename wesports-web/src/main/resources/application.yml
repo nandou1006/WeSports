@@ -1,11 +1,11 @@
 spring:
   profiles:
     active: dev
-
+server:
+  port: 9999
 ---
 spring:
   profiles: dev
-
   redis:
     host: 106.52.54.67
     port: 6379
@@ -33,14 +33,6 @@ dubbo:
   provider:
     timeout: 300000
 
-#  registry:
-#    protocol: zookeeper
-#    address: 106.52.54.67:2181
-
-# web port
-server:
-  port: 9999
-
 ---
 spring:
   profiles: uat
@@ -64,6 +56,3 @@ dubbo:
     registry:
       protocol: zookeeper
       address: 106.52.54.67:2181
-# web port
-server:
-  port: 9999
