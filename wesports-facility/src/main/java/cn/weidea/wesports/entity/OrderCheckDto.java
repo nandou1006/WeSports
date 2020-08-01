@@ -14,7 +14,7 @@ public class OrderCheckDto implements Serializable{
 
     private String health;
 
-    private Float temp;
+    private String temp;
 
     private Integer stat;
 }

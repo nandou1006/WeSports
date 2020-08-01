@@ -13,6 +13,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -91,7 +93,8 @@ public class OrderServiceImpl implements IOrderService {
         queryWrapper.eq("user_id", userId).eq("company_id", companyId).eq("stat", 1);
         if(orderMapper.selectOne(queryWrapper) != null) dto.setStat(2);
 
-        dto.setTemp(temp);
+        String temperature = new DecimalFormat("0.00").format(temp);
+        dto.setTemp(temperature);
         if (temp < 38 && health)
             dto.setHealth("健康");
         else
