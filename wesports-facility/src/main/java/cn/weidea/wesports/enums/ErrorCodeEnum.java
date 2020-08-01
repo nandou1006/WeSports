@@ -12,6 +12,12 @@ public enum ErrorCodeEnum {
     // 用户名与密码不匹配
     MISMATCH(400, "账户名与密码不匹配，请重新输入"),
 
+    // 人脸搜索失败
+    FACENOTEXIST(500, "人脸验证失败，用户不存在"),
+
+    // 人脸图像上传失败
+    IMGUPLOADFAIL(501,"人脸上传失败"),
+
     NODATA(1000, "数据库查询结果为空，请确认查询参数"),
 
     CREATE_FAIL(1001, "创建失败"),
