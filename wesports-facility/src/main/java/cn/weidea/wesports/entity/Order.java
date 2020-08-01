@@ -15,19 +15,19 @@ import java.util.Date;
 @NoArgsConstructor
 @TableName(value = "`order`")
 public class Order {
-    private String id;
+    private Integer id;
 
     private String orderId;
 
-    private int userId;
+    private String userId;
 
-    private int fieldId;
+    private Integer fieldId;
 
-    private int companyId;
+    private Integer companyId;
 
-    private int stat;
+    private Integer stat;
 
-    private int points;
+    private Integer points;
 
     private BigDecimal cost;
 

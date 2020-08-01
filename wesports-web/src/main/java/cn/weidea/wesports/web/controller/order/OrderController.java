@@ -1,7 +1,6 @@
 package cn.weidea.wesports.web.controller.order;
 
-import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.entity.OrderDto;
+import cn.weidea.wesports.entity.*;
 import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -21,13 +20,15 @@ public class OrderController {
      * @param
      * @return
      */
-    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders", method = RequestMethod.POST)
     public CommonResult getAllOrders(@RequestBody OrderVO orderVO) {
         List<OrderDto> orderDtoList = IOrderService.getAllOrderList(orderVO.getUserId());
+        if (orderDtoList == null)
+            return CommonResult.success("没有订单数据");
         return CommonResult.success(orderDtoList);
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public CommonResult getOneOrder(@RequestBody OrderVO orderVO) {
         OrderDto orderDto = IOrderService.getOneOrder(orderVO.getOrderId());
         return CommonResult.success(orderDto);
@@ -36,10 +37,28 @@ public class OrderController {
     @RequestMapping(value = "/order/create", method = RequestMethod.POST)
     public CommonResult createOrder(@RequestBody OrderVO orderVO) {
         //创建订单
-        boolean result = IOrderService.create(orderVO);
-        if (result)
-            return CommonResult.success();
+        OrderDto result = IOrderService.create(orderVO);
+        if (result != null)
+            return CommonResult.success(result);
         return CommonResult.failure(9000, "创建失败");
+    }
+
+    @RequestMapping(value = "order/pay", method = RequestMethod.POST)
+    public CommonResult payOrder(@RequestBody OrderVO orderVO) {
+        OrderDto dto = IOrderService.payOrder(orderVO.getOrderId());
+        return CommonResult.success(dto);
+    }
+
+    @RequestMapping(value = "/order/check", method = RequestMethod.POST)
+    public CommonResult check(@RequestBody OrderVO orderVO) {
+        OrderCheckDto orderCheckDto = IOrderService.check(orderVO.getUserId(), orderVO.getCompanyId());
+        return CommonResult.success(orderCheckDto);
+    }
+
+    @RequestMapping(value = "/orders/company", method = RequestMethod.POST)
+    public CommonResult getCompanyOrders(@RequestBody OrderVO orderVO) {
+        List<CompanyOrderDto> dtos = IOrderService.getCompanyOrders(orderVO.getCompanyId());
+        return CommonResult.success(dtos);
     }
 
 
