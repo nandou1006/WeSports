@@ -29,9 +29,9 @@ public class OrderServiceImpl implements IOrderService {
     private CompanyMapper companyMapper;
 
     @Override
-    public boolean create(OrderVO orderVO) {
+    public OrderDto create(OrderVO orderVO) {
         if(orderVO == null) {
-            return false;
+            return null;
         }
         Date date = new Date();
         Random random = new Random();
@@ -51,7 +51,12 @@ public class OrderServiceImpl implements IOrderService {
         order.setCreateTime(new Date());
         order.setUpdateTime(new Date());
         int ret = orderMapper.insert(order);
-        return ret > 0;
+        OrderDto dto = new OrderDto();
+        dto.setOrderId(orderId);
+        if (ret>0)
+            return dto;
+        else
+            return null;
     }
 
     @Override
@@ -95,8 +100,11 @@ public class OrderServiceImpl implements IOrderService {
 
         String temperature = new DecimalFormat("0.00").format(temp);
         dto.setTemp(temperature);
-        if (temp < 38 && health)
+        if (temp < 38 && health) {
             dto.setHealth("健康");
+            //把订单数据上链
+
+        }
         else
             dto.setHealth("不健康");
 

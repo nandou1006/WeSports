@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IOrderService {
     //创建
-    boolean create(OrderVO orderVO);
+    OrderDto create(OrderVO orderVO);
     //获取某个用户的订单列表
     List<OrderDto> getAllOrderList(String userId);
     //获取单个订单

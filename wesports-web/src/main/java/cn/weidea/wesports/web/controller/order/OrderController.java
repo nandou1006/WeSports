@@ -37,9 +37,9 @@ public class OrderController {
     @RequestMapping(value = "/order/create", method = RequestMethod.POST)
     public CommonResult createOrder(@RequestBody OrderVO orderVO) {
         //创建订单
-        boolean result = IOrderService.create(orderVO);
-        if (result)
-            return CommonResult.success();
+        OrderDto result = IOrderService.create(orderVO);
+        if (result != null)
+            return CommonResult.success(result);
         return CommonResult.failure(9000, "创建失败");
     }
 
