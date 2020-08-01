@@ -9,6 +9,7 @@ import MyOrder from '@/components/MyOrder'
 import OrderDetail from '@/components/OrderDetail'
 import Success from '@/components/Success'
 import Store from '@/components/Store'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/',
       name: 'Reservation',
       component: Reservation
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/gymDetail',

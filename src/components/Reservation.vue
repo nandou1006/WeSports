@@ -1,6 +1,6 @@
 <template>
   <div class="container div-col" :style="backgroundImg">
-    <div class="div1 div-col"/>
+    <div class="top div-col"/>
     <div class="div2 div-col" @click="clickB"/>
     <div class="div3 div-col"/>
     <div class="div4 div-col">
@@ -42,25 +42,27 @@ export default {
 
 <style scoped>
 .container{
-  height: 1436px;
+  height: 2872px;
+  margin: 0 auto;
 }
-.div1{
-  height: 600px;
+.top{
+  height: 1200px;
 }
 .div2{
-  height: 220px;
+  height: 440px;
 }
 .div3{
-  height: 490px;
+  height: 980px;
 }
 .div4{
-  height: 126px;
+  height: 252px;
   display: flex;
 }
 .div-row{
-  height: 126px;
-  width: 250px;
+  height: 252px;
+  width: 500px;
 }
 .div-col{
+  width: 1500px;
 }
 </style>
