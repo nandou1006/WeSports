@@ -1,31 +1,35 @@
 package cn.weidea.wesports.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName(value = "`order`")
 public class Order {
-    private int id;
+    private Integer id;
 
     private String orderId;
 
-    private int userId;
+    private String userId;
 
-    private int fieldId;
+    private Integer fieldId;
 
-    private int companyId;
+    private Integer companyId;
 
-    private int stat;
+    private Integer stat;
 
-    private int points;
+    private Integer points;
 
-    private long cost;
+    private BigDecimal cost;
 
 //    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

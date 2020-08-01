@@ -1,6 +1,7 @@
 package cn.weidea.wesports.web.controller.order;
 
 import cn.weidea.wesports.entity.CommonResult;
+import cn.weidea.wesports.entity.OrderCheckDto;
 import cn.weidea.wesports.entity.OrderDto;
 import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
@@ -18,18 +19,18 @@ public class OrderController {
 
     /**
      * 查询用户订单列表
-     * @param userId
+     * @param
      * @return
      */
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public CommonResult getAllOrders(@RequestParam Integer userId) {
-        List<OrderDto> orderDtoList = IOrderService.getAllOrderList(userId);
+    public CommonResult getAllOrders(@RequestBody OrderVO orderVO) {
+        List<OrderDto> orderDtoList = IOrderService.getAllOrderList(orderVO.getUserId());
         return CommonResult.success(orderDtoList);
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
-    public CommonResult getOneOrder(@RequestParam String orderId) {
-        OrderDto orderDto = IOrderService.getOneOrder(orderId);
+    public CommonResult getOneOrder(@RequestBody OrderVO orderVO) {
+        OrderDto orderDto = IOrderService.getOneOrder(orderVO.getOrderId());
         return CommonResult.success(orderDto);
     }
 
@@ -40,6 +41,18 @@ public class OrderController {
         if (result)
             return CommonResult.success();
         return CommonResult.failure(9000, "创建失败");
+    }
+
+    @RequestMapping(value = "order/pay", method = RequestMethod.POST)
+    public CommonResult payOrder(@RequestBody OrderVO orderVO) {
+        OrderDto dto = IOrderService.payOrder(orderVO.getOrderId());
+        return CommonResult.success(dto);
+    }
+
+    @RequestMapping(value = "/order/check", method = RequestMethod.POST)
+    public CommonResult check(@RequestBody OrderVO orderVO) {
+        OrderCheckDto orderCheckDto = IOrderService.check(orderVO.getUserId(), orderVO.getCompanyId());
+        return CommonResult.success(orderCheckDto);
     }
 
 }
