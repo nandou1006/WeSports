@@ -6,7 +6,7 @@
         <input type="text" v-model="user">
       </div>
       <div class="row">
-        <input type="text" v-model="password">
+        <input type="password" v-model="password">
       </div>
       <div class="row" @click="handleLogin"/>
     </div>
@@ -64,6 +64,12 @@ export default {
   margin: 75px 75px 0 75px;
 }
 input[type='text']{
+  margin-top: 10px;
+  height: 91px;
+  width: 600px;
+  font-size: 40px;
+}
+input[type='password']{
   margin-top: 10px;
   height: 91px;
   width: 600px;

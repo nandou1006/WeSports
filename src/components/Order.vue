@@ -9,6 +9,9 @@
       <div class="checkbox">
         <input type="checkbox" v-model="protocol" id="protocol"><span class="text">本人已阅读并同意《退款规定及场馆入场须知》</span>
       </div>
+      <div class="prompt" v-show="showPrompt">
+        <span v-show="showPrompt" class="prompt-text">请勾选</span>
+      </div>
     </div>
     <div class="div3 div-col">
       <div class="price"/>
@@ -36,8 +39,19 @@ export default {
     this.orderId = localStorage.getItem('orderId')
     this.orderDetail()
   },
+  computed: {
+    showPrompt () {
+      return !(this.authorize && this.protocol)
+    }
+  },
   methods: {
     clickPay () {
+      console.log(this.showPrompt)
+      if (this.authorize && this.protocol) {
+        this.handlePay()
+      }
+    },
+    handlePay () {
       let that = this
       that.$axios.post('/v1/order/pay', {
         orderId: that.orderId
@@ -73,10 +87,10 @@ export default {
   height: 90px;
 }
 .div1{
-  height: 1100px;
+  height: 1040px;
 }
 .div2{
-  height: 130px;
+  height: 190px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -84,6 +98,14 @@ export default {
 .checkbox{
   height: 60px;
   margin-left: 50px;
+}
+.prompt{
+  height: 60px;
+  margin-left: 50px;
+}
+.prompt-text{
+  font-size: 40px;
+  color: red;
 }
 .div3{
   height: 106px;
