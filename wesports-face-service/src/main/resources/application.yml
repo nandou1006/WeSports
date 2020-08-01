@@ -9,7 +9,7 @@ spring:
 # service version
 wesports:
   service:
-    version: 1.0.dev.test
+    version: 1.0.dev
 
 # Dubbo Config properties
 dubbo:

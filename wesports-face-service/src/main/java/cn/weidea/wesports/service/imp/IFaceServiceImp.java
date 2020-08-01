@@ -20,10 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.net.URL;
 import java.security.SecureRandom;
@@ -46,6 +43,7 @@ public class IFaceServiceImp implements IFaceService {
 
     /**
      * 人脸验证
+     *
      * @param bytes
      * @param companyId
      * @return
@@ -53,27 +51,28 @@ public class IFaceServiceImp implements IFaceService {
     @Override
     public CommonResult FaceValidation(byte[] bytes, String companyId) {
         try {
-            String localImgUrl = FileUpload(bytes,companyId);
-            logger.info("localImgUrl-{}",localImgUrl);
+            String localImgUrl = FileUpload(bytes, companyId);
+            logger.info("localImgUrl-{}", localImgUrl);
             String ossImgUrl = FaceImg2OSS(localImgUrl);
-            logger.info("ossImgUrl-{}",ossImgUrl);
+            logger.info("ossImgUrl-{}", ossImgUrl);
             String userId = FaceSearch(ossImgUrl);
-            logger.info("userId-{}",userId);
+            logger.info("userId-{}", userId);
             FaceValidationDTO faceValidationDTO = new FaceValidationDTO();
             faceValidationDTO.setUserId(userId);
             faceValidationDTO.setCompanyId(companyId);
-            if("".equals(userId)){
+            if ("".equals(userId)) {
                 return CommonResult.failure(ErrorCodeEnum.FACENOTEXIST);
             }
             return CommonResult.success(faceValidationDTO);
-        }catch (Exception e){
-            logger.error("FaceValidationService-"+e);
+        } catch (Exception e) {
+            logger.error("FaceValidationService-" + e);
         }
         return CommonResult.failure(ErrorCodeEnum.FACENOTEXIST);
     }
 
     /**
      * 根据图像url搜索人脸数据库，成功则返回userId
+     *
      * @param ossImgUrl 阿里云oss服务器图像url
      * @return
      * @throws FileNotFoundException
@@ -104,13 +103,13 @@ public class IFaceServiceImp implements IFaceService {
                     //System.out.println("111"+ new Gson().toJson(faceItemsItem)+"\n");
                     // 人脸数据库中匹配得到的用户标识
                     //人脸匹配得分
-                    if(bestScore < faceItemsItem.getScore()){
+                    if (bestScore < faceItemsItem.getScore()) {
                         bestScore = faceItemsItem.getScore();
                         userId = faceItemsItem.getEntityId();
                     }
                     System.out.println(userId);
                 }
-            if(bestScore<THRESHOLD)userId = "";
+            if (bestScore < THRESHOLD) userId = "";
             return userId;
         } catch (ServerException e) {
             e.printStackTrace();
@@ -127,6 +126,7 @@ public class IFaceServiceImp implements IFaceService {
 
     /**
      * 将bytes写入到本地文件
+     *
      * @param bytes
      * @param companyId
      * @return
@@ -152,6 +152,7 @@ public class IFaceServiceImp implements IFaceService {
 
     /**
      * 将本地图像上传到阿里云oss服务器，返回url
+     *
      * @param localImgUrl
      * @return
      */
