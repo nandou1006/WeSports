@@ -30,10 +30,26 @@ export default {
       protocol: false
     }
   },
+  created () {
+    this.orderDetail()
+  },
   methods: {
     clickPay () {
-      console.log(this.authorize, this.protocol)
-      this.$router.push({ path: '/success' })
+      let that = this
+      that.$axios.post('/v1/order/pay', {
+        orderId: '120843943-2106663712'
+      }).then(res => {
+        console.log(res.data)
+        this.$router.push({ path: '/success' })
+      })
+    },
+    orderDetail () {
+      let that = this
+      that.$axios.get('/v1/order', {
+        orderId: '180813184728930976'
+      }).then(res => {
+        console.log(res.data)
+      })
     }
   }
 }

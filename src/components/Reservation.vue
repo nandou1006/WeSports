@@ -63,6 +63,5 @@ export default {
   width: 250px;
 }
 .div-col{
-  width: 750px;
 }
 </style>

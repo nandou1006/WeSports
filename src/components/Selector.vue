@@ -30,14 +30,36 @@ export default {
       },
       dateOptions: ['2020-08-03', '2020-08-04', '2020-08-05', '2020-08-06', '2020-08-07', '2020-08-08'],
       date: '2020-08-03',
-      rangeOptions: ['9:00-10:30', '10:30-12:00', '14:00-15:30', '15:30-17:00', '19:00-20:30', '20:30-22:00'],
-      range: '9:00-10:30'
+      rangeOptions: ['09:00-10:30', '10:30-12:00', '14:00-15:30', '15:30-17:00', '19:00-20:30', '20:30-22:00'],
+      range: '09:00-10:30'
     }
   },
   methods: {
     submitOrder () {
-      console.log(this.date, this.range)
-      this.$router.push({ path: '/order' })
+      let that = this
+      let timeObject = that.handleTime(that.date, that.range)
+      let body = {
+        userId: '3',
+        companyId: '10',
+        fieldId: '1',
+        cost: '155',
+        points: '50',
+        startTime: timeObject.startTime,
+        endTime: timeObject.endTime
+      }
+      that.$axios.post('/v1/order/create', body).then(res => {
+        console.log(res)
+        that.$router.push({ path: '/order' })
+      })
+    },
+    handleTime (date, range) {
+      let rangeStart = range.substring(0, 5)
+      let rangeEnd = range.substring(6)
+      let res = {
+        startTime: `${date}T${rangeStart}:00`,
+        endTime: `${date}T${rangeEnd}:00`
+      }
+      return res
     }
   }
 }

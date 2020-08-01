@@ -24,8 +24,8 @@ export default {
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
       },
-      user: 'test',
-      password: 'test'
+      user: '',
+      password: ''
     }
   },
   methods: {
@@ -36,7 +36,7 @@ export default {
         password: that.password,
         groupId: 'U'
       }).then(res => {
-        console.log(res.data.data.token)
+        document.cookie = 'token=' + res.data.data.token
         that.$router.push({ path: '/' })
       })
     }
@@ -50,7 +50,6 @@ export default {
   margin: 0 auto;
 }
 .div-col{
-  width: 750px;
 }
 .top{
   height: 450px;
