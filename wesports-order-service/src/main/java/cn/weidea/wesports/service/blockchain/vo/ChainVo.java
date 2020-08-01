@@ -1,60 +1,87 @@
+/**
+  * Copyright 2020 bejson.com 
+  */
 package cn.weidea.wesports.service.blockchain.vo;
+import java.util.List;
 
-import cn.weidea.wesports.entity.OrderDto;
-import lombok.Data;
+/**
+ * Auto-generated: 2020-08-02 0:26:31
+ *
+ * @author bejson.com (i@bejson.com)
+ * @website http://www.bejson.com/java2pojo/
+ */
+public class ChainVo {
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
+    private String contractName;
+    private String contractAddress;
+    private String funcName;
+    private List<ContractAbi> contractAbi;
+    private List<String> funcParam;
+    private String groupId;
+    private boolean useAes;
+    private String user;
+    private String version;
+    public void setContractName(String contractName) {
+         this.contractName = contractName;
+     }
+     public String getContractName() {
+         return contractName;
+     }
 
-@Data
-public class ChainVo implements Serializable {
+    public void setContractAddress(String contractAddress) {
+         this.contractAddress = contractAddress;
+     }
+     public String getContractAddress() {
+         return contractAddress;
+     }
 
-    private String contractName = "dataStorage";
+    public void setFuncName(String funcName) {
+         this.funcName = funcName;
+     }
+     public String getFuncName() {
+         return funcName;
+     }
 
-    private String contractAddress = "0xef396ba8ea7f7003c054f53db11ecc789a5e1dba";
+    public void setContractAbi(List<ContractAbi> contractAbi) {
+         this.contractAbi = contractAbi;
+     }
+     public List<ContractAbi> getContractAbi() {
+         return contractAbi;
+     }
 
-    private String funcName = "set";
+    public void setFuncParam(List<String> funcParam) {
+         this.funcParam = funcParam;
+     }
+     public List<String> getFuncParam() {
+         return funcParam;
+     }
 
-    private ArrayList contractAbi;
+    public void setGroupId(String groupId) {
+         this.groupId = groupId;
+     }
+     public String getGroupId() {
+         return groupId;
+     }
 
-    private ArrayList funcParam;
+    public void setUseAes(boolean useAes) {
+         this.useAes = useAes;
+     }
+     public boolean getUseAes() {
+         return useAes;
+     }
 
+    public void setUser(String user) {
+         this.user = user;
+     }
+     public String getUser() {
+         return user;
+     }
 
-
-    public ChainVo(String userId,String orderMessage){
-        this.funcParam = new ArrayList();
-        funcParam.add(userId);
-        funcParam.add(orderMessage);
-        init();
-    }
-
-    private void init() {
-        ArrayList<HashMap> contractAbi = new ArrayList<>();
-        ArrayList<HashMap> inputs = new ArrayList<>();
-        ArrayList<HashMap> inputsInner = new ArrayList<>();
-        HashMap contractAbiMap = new HashMap();
-////
-        HashMap inputsInnerMap1 = new HashMap();
-        HashMap inputsInnerMap2 = new HashMap();
-        inputsInnerMap1.put("name","id");
-        inputsInnerMap1.put("type","uint256");
-        inputs.add(inputsInnerMap1);
-        inputsInnerMap2.put("name","data");
-        inputsInnerMap2.put("type","string");
-        inputs.add(inputsInnerMap2);
-////
-        contractAbiMap.put("constant", false);
-        contractAbiMap.put("inputs", inputs);
-        contractAbiMap.put("name", "set");
-        contractAbiMap.put("outputs", null);//是否用null?????
-        contractAbiMap.put("payable","false");
-        contractAbiMap.put("stateMutability", "nonpayable");
-        contractAbiMap.put("type", "function");
-        contractAbiMap.put("funcId", "1");
-        this.contractAbi = contractAbi;
-    }
-
-
+    public void setVersion(String version) {
+         this.version = version;
+     }
+     public String getVersion() {
+         return version;
+     }
 
 }
