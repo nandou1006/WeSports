@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/")
 public class OrderController {
 
     @Reference(version = "${wesports.service.version}")
@@ -20,7 +20,7 @@ public class OrderController {
      * @param
      * @return
      */
-    @RequestMapping(value = "/orders", method = RequestMethod.POST)
+    @RequestMapping(value = "api/v1/orders", method = RequestMethod.POST)
     public CommonResult getAllOrders(@RequestBody OrderVO orderVO) {
         List<OrderDto> orderDtoList = IOrderService.getAllOrderList(orderVO.getUserId());
         if (orderDtoList == null)
@@ -28,13 +28,13 @@ public class OrderController {
         return CommonResult.success(orderDtoList);
     }
 
-    @RequestMapping(value = "/order", method = RequestMethod.POST)
+    @RequestMapping(value = "api/v1/order", method = RequestMethod.POST)
     public CommonResult getOneOrder(@RequestBody OrderVO orderVO) {
         OrderDto orderDto = IOrderService.getOneOrder(orderVO.getOrderId());
         return CommonResult.success(orderDto);
     }
 
-    @RequestMapping(value = "/order/create", method = RequestMethod.POST)
+    @RequestMapping(value = "api/v1/order/create", method = RequestMethod.POST)
     public CommonResult createOrder(@RequestBody OrderVO orderVO) {
         //创建订单
         OrderDto result = IOrderService.create(orderVO);
@@ -43,7 +43,7 @@ public class OrderController {
         return CommonResult.failure(9000, "创建失败");
     }
 
-    @RequestMapping(value = "order/pay", method = RequestMethod.POST)
+    @RequestMapping(value = "api/v1/order/pay", method = RequestMethod.POST)
     public CommonResult payOrder(@RequestBody OrderVO orderVO) {
         OrderDto dto = IOrderService.payOrder(orderVO.getOrderId());
         return CommonResult.success(dto);
@@ -55,7 +55,7 @@ public class OrderController {
         return CommonResult.success(orderCheckDto);
     }
 
-    @RequestMapping(value = "/orders/company", method = RequestMethod.POST)
+    @RequestMapping(value = "api/v1/orders/company", method = RequestMethod.POST)
     public CommonResult getCompanyOrders(@RequestBody OrderVO orderVO) {
         List<CompanyOrderDto> dtos = IOrderService.getCompanyOrders(orderVO.getCompanyId());
         return CommonResult.success(dtos);
