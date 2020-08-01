@@ -7,10 +7,8 @@ import cn.weidea.wesports.vo.CompanyVo;
 import cn.weidea.wesports.web.service.impl.common.LoginUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -24,7 +22,7 @@ public class CompanyController {
     private RedisUtils redisUtils;
 
     @RequestMapping(value = "/create",method = RequestMethod.POST)
-    public CommonResult createCompany(@RequestParam CompanyVo companyVo){
+    public CommonResult createCompany(@RequestBody CompanyVo companyVo){
         return companyService.create(companyVo);
     }
 

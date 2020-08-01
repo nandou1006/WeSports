@@ -25,7 +25,7 @@ public class CompanyFieldServiceImpl implements ICompanyFieldService {
     public CommonResult createField(CompanyField companyField) {
         int result = companyFieldMapper.insert(companyField);
         if(result != 0){
-            return CommonResult.success(result);
+            return CommonResult.success("创建成功");
         }else{
             return CommonResult.failure(ErrorCodeEnum.CREATE_FAIL);
         }
@@ -41,7 +41,7 @@ public class CompanyFieldServiceImpl implements ICompanyFieldService {
         map.put("number",Integer.toString(companyField.getNumber()));
         int result = companyFieldMapper.deleteByMap(map);
         if(result != 0){
-            return CommonResult.success(result);
+            return CommonResult.success("删除成功");
         }else{
             return CommonResult.failure(ErrorCodeEnum.DELECT_FAIL);
         }
@@ -51,7 +51,9 @@ public class CompanyFieldServiceImpl implements ICompanyFieldService {
     public CommonResult selectTypeById(int id) {
         CompanyField companyField = companyFieldMapper.selectById(id);
         int type = companyField.getType();
-        return CommonResult.success(type);
+        HashMap<String,Integer> map = new HashMap();
+        map.put("场地类型",type);
+        return CommonResult.success(map);
     }
 
 
