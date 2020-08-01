@@ -27,26 +27,27 @@ export default {
         backgroundPosition: 'center center'
       },
       authorize: false,
-      protocol: false
+      protocol: false,
+      orderId: ''
     }
   },
   created () {
+    this.orderId = localStorage.getItem('orderId')
     this.orderDetail()
   },
   methods: {
     clickPay () {
       let that = this
       that.$axios.post('/v1/order/pay', {
-        orderId: '120843943-2106663712'
+        orderId: that.orderId
       }).then(res => {
-        console.log(res.data)
         this.$router.push({ path: '/success' })
       })
     },
     orderDetail () {
       let that = this
-      that.$axios.get('/v1/order', {
-        orderId: '180813184728930976'
+      that.$axios.post('/v1/order', {
+        orderId: that.orderId
       }).then(res => {
         console.log(res.data)
       })

@@ -48,7 +48,7 @@ export default {
         endTime: timeObject.endTime
       }
       that.$axios.post('/v1/order/create', body).then(res => {
-        console.log(res)
+        localStorage.setItem('orderId', res.data.data.orderId)
         that.$router.push({ path: '/order' })
       })
     },

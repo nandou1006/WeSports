@@ -2,8 +2,10 @@
   <div class="container div-col" :style="backgroundImg">
     <div class="div1"/>
     <div class="div2">
-      <div class="refundButton" @click="refund"/>
-      <div class="homeButton" @click="home"/>
+      <div class="button-container">
+        <div class="button" @click="refund"/>
+        <div class="button" @click="home"/>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +27,7 @@ export default {
       console.log('refund')
     },
     home () {
-      this.$router.push({ path: '/home' })
+      this.$router.push({ path: '/' })
     }
   }
 }
@@ -36,14 +38,21 @@ export default {
   height: 1436px;
 }
 .div1{
-  height: 670;
+  height: 90px;
 }
 .div2{
-  height: 40px;
+  height: 1346px;
   display: flex;
 }
-.refundButton{
-  width: ;
+.button-container{
+  height: 70px;
+  width: 750px;
+  margin: 1130px 0 146px 0;
+  display: flex;
+}
+.button{
+  width: 375px;
+  height: 70px;
 }
 .div-col{
 }
