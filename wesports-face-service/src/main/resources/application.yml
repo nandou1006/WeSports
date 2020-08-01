@@ -1,0 +1,54 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+
+# service version
+wesports:
+  service:
+    version: 1.0.dev.test
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-face-dev
+    name: wesports-face-dev
+    qos-enable: false
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+  protocol:
+    name: dubbo
+    port: 20886
+  provider:
+    protocol: dubbo
+    timeout: 300000
+#    server: servlet
+
+
+---
+spring:
+  profiles: uat
+
+# service version
+wesports:
+  service:
+    version: 1.0
+
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-face
+    name: wesports-face
+    qos-enable: false
+    registry:
+      protocol: zookeeper
+      address: 106.52.54.67:2181
+    protocol:
+      name: dubbo
+      port: 20886
+
