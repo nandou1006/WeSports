@@ -32,6 +32,7 @@ export default {
       },
       authorize: false,
       protocol: false,
+      payClicked: false,
       orderId: ''
     }
   },
@@ -41,12 +42,15 @@ export default {
   },
   computed: {
     showPrompt () {
-      return !(this.authorize && this.protocol)
+      if (this.payClicked) {
+        return !(this.authorize && this.protocol)
+      }
+      return false
     }
   },
   methods: {
     clickPay () {
-      console.log(this.showPrompt)
+      this.payClicked = true
       if (this.authorize && this.protocol) {
         this.handlePay()
       }
