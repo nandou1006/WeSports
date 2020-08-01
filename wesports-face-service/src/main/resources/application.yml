@@ -24,7 +24,6 @@ dubbo:
     name: dubbo
     port: 20886
   provider:
-    protocol: dubbo
     timeout: 300000
 #    server: servlet
 
