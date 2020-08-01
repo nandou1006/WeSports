@@ -1,6 +1,7 @@
 package cn.weidea.wesports.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,8 +13,9 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName(value = "`order`")
 public class Order {
-    private int id;
+    private String id;
 
     private String orderId;
 
@@ -27,7 +29,7 @@ public class Order {
 
     private int points;
 
-    private long cost;
+    private BigDecimal cost;
 
 //    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

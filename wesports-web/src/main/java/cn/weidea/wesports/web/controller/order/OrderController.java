@@ -18,18 +18,18 @@ public class OrderController {
 
     /**
      * 查询用户订单列表
-     * @param userId
+     * @param
      * @return
      */
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
-    public CommonResult getAllOrders(@RequestParam Integer userId) {
-        List<OrderDto> orderDtoList = orderService.getAllOrderList(userId);
+    public CommonResult getAllOrders(@RequestBody OrderVO orderVO) {
+        List<OrderDto> orderDtoList = orderService.getAllOrderList(orderVO.getUserId());
         return CommonResult.success(orderDtoList);
     }
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
-    public CommonResult getOneOrder(@RequestParam String orderId) {
-        OrderDto orderDto = orderService.getOneOrder(orderId);
+    public CommonResult getOneOrder(@RequestBody OrderVO orderVO) {
+        OrderDto orderDto = orderService.getOneOrder(orderVO.getOrderId());
         return CommonResult.success(orderDto);
     }
 
@@ -41,5 +41,6 @@ public class OrderController {
             return CommonResult.success();
         return CommonResult.failure(9000, "创建失败");
     }
+
 
 }
