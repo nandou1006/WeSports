@@ -3,7 +3,7 @@ package cn.weidea.wesports.service.impl;
 import cn.weidea.wesports.entity.*;
 import cn.weidea.wesports.mapper.CompanyMapper;
 import cn.weidea.wesports.mapper.OrderMapper;
-import cn.weidea.wesports.mapper.UserInfoMapper;
+import cn.weidea.wesports.service.blockchain.service.SetOrderOnBlockChain;
 import cn.weidea.wesports.service.order.IOrderService;
 import cn.weidea.wesports.vo.OrderVO;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -30,7 +30,7 @@ public class OrderServiceImpl implements IOrderService {
     private CompanyMapper companyMapper;
 
     @Autowired
-    private UserInfoMapper userInfoMapper;
+    private SetOrderOnBlockChain setOrderOnBlockChain;
 
     @Override
     public OrderDto create(OrderVO orderVO) {
@@ -102,53 +102,28 @@ public class OrderServiceImpl implements IOrderService {
         //check
         QueryWrapper<Order> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId).eq("company_id", companyId).eq("stat", 1);
-
-        List<Order> orders = orderMapper.selectList(queryWrapper);
-        log.info("orders size:" + orders.size());
-        if (orders.size() >= 1) {
-            //user name
-            QueryWrapper<UserInfo> userNameQuery = new QueryWrapper<>();
-            userNameQuery.eq("user_id",userId);
-            String name = userInfoMapper.selectOne(userNameQuery).getName();
-            dto.setUsername(name);
-            Order order = orders.get(0);
-//        Order order = orderMapper.selectOne(queryWrapper);
-            String temperature = new DecimalFormat("0.0").format(temp);
-            dto.setTemp(temperature);
-            if (temp < 38.0 && health) {
-                dto.setStat(String.valueOf(2));
-                order.setStat(2);
-                orderMapper.updateById(order);
-                dto.setHealth("健康");
-            } else {
-                dto.setHealth("不健康");
-                dto.setStat(String.valueOf(order.getStat()));
-            }
-            //上传到链
-            log.info(dto.toString());
-            return dto;
+        Order order = orderMapper.selectOne(queryWrapper);
+        String temperature = new DecimalFormat("0.00").format(temp);
+        dto.setTemp(temperature);
+        if(order != null && temp <38 && health) {
+            dto.setStat(2);
+            order.setStat(2);
+//            orderMapper.updateById(order);
+            dto.setHealth("健康");
         }
         else {
-            OrderCheckDto ret = new OrderCheckDto();
-            ret.setStat(String.valueOf(-1));
-
-            ret.setTemp(new DecimalFormat("0.0").format(getTemp()));
-            if (temp > 38.0) {
-                ret.setHealth("不健康");
-            }
-            else {
-                if(!getHealthMessage())
-                    ret.setHealth("不健康");
-                else
-                    ret.setHealth("健康");
-            }
-            QueryWrapper<UserInfo> userNameQuery = new QueryWrapper<>();
-            userNameQuery.eq("user_id",userId);
-            String name = userInfoMapper.selectOne(userNameQuery).getName();
-            ret.setUsername(name);
-            return ret;
+            dto.setHealth("不健康");
+            dto.setStat(order.getStat());
         }
-
+        //数据上链
+        OrderDto orderDto = new OrderDto();
+        BeanUtils.copyProperties(order, orderDto);
+        String transactionHash = setOrderOnBlockChain.set(userId, orderDto);
+        order.setBlockToken(transactionHash);
+        QueryWrapper<Order> qw = new QueryWrapper<>();
+        qw.eq("order_id",order.getOrderId());
+        int result = orderMapper.update(order,qw);//更新订单的blockToken
+        return dto;
     }
 
     @Override
