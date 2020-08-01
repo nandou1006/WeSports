@@ -145,7 +145,7 @@
                     if (xhr.readyState === 4 && xhr.status === 200) {
                         console.log(xhr.responseText)
                         var json = JSON.parse(xhr.responseText)
-                        
+
                         if(json != null && json.data != null) {
                             var xReq = new XMLHttpRequest();
                             xReq.open("POST", '/order/check')

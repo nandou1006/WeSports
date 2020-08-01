@@ -113,9 +113,9 @@ public class OrderServiceImpl implements IOrderService {
             dto.setUsername(name);
             Order order = orders.get(0);
 //        Order order = orderMapper.selectOne(queryWrapper);
-            String temperature = new DecimalFormat("0.00").format(temp);
+            String temperature = new DecimalFormat("0.0").format(temp);
             dto.setTemp(temperature);
-            if (order != null && temp < 38 && health) {
+            if (temp < 38.0 && health) {
                 dto.setStat(String.valueOf(2));
                 order.setStat(2);
                 orderMapper.updateById(order);
@@ -132,14 +132,15 @@ public class OrderServiceImpl implements IOrderService {
             OrderCheckDto ret = new OrderCheckDto();
             ret.setStat(String.valueOf(-1));
 
-            ret.setTemp(new DecimalFormat("0.00").format(getTemp()));
-            if (temp > 38) {
+            ret.setTemp(new DecimalFormat("0.0").format(getTemp()));
+            if (temp > 38.0) {
                 ret.setHealth("不健康");
             }
             else {
                 if(!getHealthMessage())
                     ret.setHealth("不健康");
-                else ret.setHealth("健康");
+                else
+                    ret.setHealth("健康");
             }
             QueryWrapper<UserInfo> userNameQuery = new QueryWrapper<>();
             userNameQuery.eq("user_id",userId);

@@ -17,16 +17,4 @@ public class orderServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(orderServiceApplication.class, args);
     }
-
-
-    /**
-     * 适配前端 vue 刷新 404
-     */
-    @Bean
-    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer() {
-        return factory -> {
-            ErrorPage errorPage = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
-            factory.addErrorPages(errorPage);
-        };
-    }
 }
