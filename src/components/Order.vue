@@ -33,6 +33,7 @@ export default {
   methods: {
     clickPay () {
       console.log(this.authorize, this.protocol)
+      this.$router.push({ path: '/success' })
     }
   }
 }
@@ -40,38 +41,37 @@ export default {
 
 <style scoped>
 .container{
-  height: 792px;
-  font-size: 20px;
+  height: 1436px;
+  font-size: 40px;
   color: #405080;
 }
 .text{
-  font-size: 16px;
+  font-size: 30px;
 }
 .div1{
-  height: 660px;
+  height: 1190px;
 }
 .div2{
-  height: 60px;
-  margin-top: 10px;
+  height: 130px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 .checkbox{
-  height: 30px;
-  margin-left: 10px;
+  height: 60px;
+  margin-left: 50px;
 }
 .div3{
-  height: 62px;
+  height: 106px;
   display: flex;
 }
 .price{
-  height: 62px;
-  width: 270px;
+  height: 106px;
+  width: 500px;
 }
 .pay{
-  height: 62px;
-  width: 144px;
+  height: 106px;
+  width: 250px;
 }
 .div-col{
 }

@@ -32,7 +32,7 @@ export default {
 
 <style scoped>
 .container{
-  height: 792px;
+  height: 1436px;
 }
 .div1{
   height: 230px;

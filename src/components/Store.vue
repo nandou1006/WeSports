@@ -8,7 +8,7 @@ export default {
   data () {
     return {
       backgroundImg: {
-        backgroundImage: 'url(' + require('@/assets/1.jpg') + ')',
+        backgroundImage: 'url(' + require('@/assets/store.jpg') + ')',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 100%',
         backgroundPosition: 'center center'
@@ -22,9 +22,8 @@ export default {
 
 <style scoped>
 .container{
-  height: 1334px;
+  height: 1436px;
 }
 .div-col{
-  width: 734px;
 }
 </style>

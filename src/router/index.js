@@ -7,13 +7,15 @@ import Order from '@/components/Order'
 import Mine from '@/components/Mine'
 import MyOrder from '@/components/MyOrder'
 import OrderDetail from '@/components/OrderDetail'
+import Success from '@/components/Success'
+import Store from '@/components/Store'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/home',
+      path: '/',
       name: 'Reservation',
       component: Reservation
     },
@@ -31,6 +33,16 @@ export default new Router({
       path: '/order',
       name: Order,
       component: Order
+    },
+    {
+      path: '/success',
+      name: Success,
+      component: Success
+    },
+    {
+      path: '/store',
+      name: Store,
+      component: Store
     },
     {
       path: '/mine',

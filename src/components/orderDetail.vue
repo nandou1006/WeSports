@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 .container{
-  height: 792px;
+  height: 1436px;
 }
 .div1{
   height: 670;
@@ -41,6 +41,9 @@ export default {
 .div2{
   height: 40px;
   display: flex;
+}
+.refundButton{
+  width: ;
 }
 .div-col{
 }

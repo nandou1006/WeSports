@@ -30,8 +30,8 @@ export default {
       },
       dateOptions: ['2020-08-03', '2020-08-04', '2020-08-05', '2020-08-06', '2020-08-07', '2020-08-08'],
       date: '2020-08-03',
-      rangeOptions: ['9:30-10:30', '10:30-11:30', '13:30-14:30', '14:30-15:30', '15:30-16:30', '16:30-17:30'],
-      range: '9:30-10:30'
+      rangeOptions: ['9:00-10:30', '10:30-12:00', '14:00-15:30', '15:30-17:00', '19:00-20:30', '20:30-22:00'],
+      range: '9:00-10:30'
     }
   },
   methods: {
@@ -45,27 +45,30 @@ export default {
 
 <style scoped>
 .container{
-  height: 792px;
-  font-size: 20px;
+  height: 1436px;
+  font-size: 30px;
+  color: #405080;
 }
 .div1{
-  height: 88px;
+  height: 220px;
 }
 .div2{
-  height: 400px;
+  height: 600px;
   display: flex;
 }
 .select-box{
-  width: 250px;
+  width: 300px;
+  margin-left: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .div3{
-  height: 194px;
+  height: 510px;
 }
 .div4{
-  height: 60px;
+  height: 106px;
 }
 .div-col{
 }
