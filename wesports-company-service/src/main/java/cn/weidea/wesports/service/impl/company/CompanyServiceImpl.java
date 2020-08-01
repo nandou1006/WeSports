@@ -14,6 +14,7 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Component
@@ -33,7 +34,7 @@ public class CompanyServiceImpl implements ICompanyService {
         company.setAddress(companyVo.getAddress());
         int result = companyMapper.insert(company);
         if(result != 0){
-            return CommonResult.success(result);
+            return CommonResult.success("创建用户成功");
         }else{
             return CommonResult.failure(ErrorCodeEnum.CREATE_FAIL);
         }
