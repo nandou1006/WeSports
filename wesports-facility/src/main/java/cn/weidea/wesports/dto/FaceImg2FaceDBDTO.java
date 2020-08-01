@@ -1,4 +1,4 @@
-package cn.weidea.wesports.entity;
+package cn.weidea.wesports.dto;
 
 public class FaceImg2FaceDBDTO {
 

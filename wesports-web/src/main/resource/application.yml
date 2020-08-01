@@ -13,7 +13,7 @@ spring:
 # service version
 wesports:
   service:
-    version: 1.0.dev
+    version: 1.0.dev.test
 
 # redis config
 
@@ -27,9 +27,6 @@ dubbo:
   registry:
     protocol: zookeeper
     address: 106.52.54.67:2181
-  protocol:
-    name: dubbo
-    port: 20880
   provider:
     timeout: 300000
 

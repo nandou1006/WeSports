@@ -29,9 +29,11 @@ import java.net.URL;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
-@Service(version = "${wesports.service.version}", protocol = "hessian")
+@Service(version = "${wesports.service.version}")
 public class IFaceServiceImp implements IFaceService {
 
     private static final Logger logger = LoggerFactory.getLogger(IFaceServiceImp.class);
@@ -52,8 +54,11 @@ public class IFaceServiceImp implements IFaceService {
     public CommonResult FaceValidation(byte[] bytes, String companyId) {
         try {
             String localImgUrl = FileUpload(bytes,companyId);
+            logger.info("localImgUrl-{}",localImgUrl);
             String ossImgUrl = FaceImg2OSS(localImgUrl);
+            logger.info("ossImgUrl-{}",ossImgUrl);
             String userId = FaceSearch(ossImgUrl);
+            logger.info("userId-{}",userId);
             FaceValidationDTO faceValidationDTO = new FaceValidationDTO();
             faceValidationDTO.setUserId(userId);
             faceValidationDTO.setCompanyId(companyId);
@@ -73,7 +78,7 @@ public class IFaceServiceImp implements IFaceService {
      * @return
      * @throws FileNotFoundException
      */
-    private String FaceSearch(String ossImgUrl) throws FileNotFoundException {
+    private String FaceSearch(String ossImgUrl) {
         //搜索得到的用户Id
         String userId = "";
         DefaultProfile profile = DefaultProfile.getProfile(REGIONID,
@@ -87,6 +92,9 @@ public class IFaceServiceImp implements IFaceService {
         searchFaceRequest.setLimit(1);
         //人脸图像
         searchFaceRequest.setImageUrl(ossImgUrl);
+        double THRESHOLD = 0.6;
+        double bestScore = 0.0;
+        Map<String, Double> map = new HashMap<>();
 
         try {
             SearchFaceResponse response = client.getAcsResponse(searchFaceRequest);
@@ -95,11 +103,14 @@ public class IFaceServiceImp implements IFaceService {
                 for (SearchFaceResponse.Data.MatchListItem.FaceItemsItem faceItemsItem : matchListItem.getFaceItems()) {
                     //System.out.println("111"+ new Gson().toJson(faceItemsItem)+"\n");
                     // 人脸数据库中匹配得到的用户标识
-                    userId = faceItemsItem.getEntityId();
                     //人脸匹配得分
-                    double score = faceItemsItem.getScore();
+                    if(bestScore < faceItemsItem.getScore()){
+                        bestScore = faceItemsItem.getScore();
+                        userId = faceItemsItem.getEntityId();
+                    }
                     System.out.println(userId);
                 }
+            if(bestScore<THRESHOLD)userId = "";
             return userId;
         } catch (ServerException e) {
             e.printStackTrace();
@@ -127,7 +138,7 @@ public class IFaceServiceImp implements IFaceService {
         File file = new File(ResourceUtils.getURL("classpath:").getPath() + fileName + ".jpg");
         logger.info("路径：{}", file.getAbsolutePath());
         if (!file.exists()) {//目录不存在就创建
-            file.mkdirs();
+            //file.mkdirs();
         }
         try (BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file))) {
             bufferedOutputStream.write(bytes);
@@ -164,6 +175,7 @@ public class IFaceServiceImp implements IFaceService {
             Date expiration = new Date(System.currentTimeMillis() + 3600 * 1000);
             // 生成以GET方法访问的签名URL，访客可以直接通过浏览器访问相关内容。
             URL url = ossClient.generatePresignedUrl(BUKETNAME, objectName, expiration);
+            logger.info(url.toString());
             ossClient.shutdown();
             ossImgUrl = url.getProtocol() + "://" + url.getHost() + url.getPath().toString();
             logger.info(url.toString());

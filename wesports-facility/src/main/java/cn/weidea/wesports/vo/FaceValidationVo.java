@@ -10,7 +10,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class FaceValidationVo implements Serializable {
 
-    private String imgURL;
+    private String imgUrl;
 
     private String companyId;
 }

@@ -1,7 +1,3 @@
-package cn.weidea.wesports.service;
-
-import cn.weidea.wesports.entity.AliyunFaceSearchResultDTO;
-import com.alibaba.fastjson.JSONObject;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.ObjectMetadata;
 import com.aliyuncs.DefaultAcsClient;
@@ -9,7 +5,6 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.profile.DefaultProfile;
-import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.URISyntaxException;
@@ -19,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.aliyuncs.facebody.model.v20191230.*;
-import org.springframework.util.Base64Utils;
 import sun.misc.BASE64Decoder;
 
 public class SearchFace {
