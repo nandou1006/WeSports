@@ -2,8 +2,11 @@
   <div class="container div-col" :style="backgroundImg">
     <div class="div1"/>
     <div class="div2">
-      <div class="blank"/>
-      <div class="detail" @click="orderDetail"/>
+      <div class="order"/>
+      <div class="operate">
+        <div class="blank"/>
+        <div class="detail-button" @click="orderDetail"/>
+      </div>
     </div>
   </div>
 </template>
@@ -33,18 +36,30 @@ export default {
   height: 1436px;
 }
 .div1{
-  height: 220px;
+  height: 90px;
 }
 .div2{
-  height: 25px;
+  margin-bottom: 10px;
+  height: 380px;
+}
+.order{
+  height: 310px;
+}
+.operate{
+  height: 40px;
   display: flex;
 }
 .blank{
-  width: 330px;
+  width: 600px;
+  height: 40px;
+  margin: 0;
 }
-.detail{
-  width: 70px;
+.detail-button{
+  width: 130px;
+  height: 40px;
+  margin: 0;
 }
 .div-col{
+  width: 750px;
 }
 </style>

@@ -31,13 +31,15 @@ export default {
   methods: {
     handleLogin () {
       let that = this
-      that.$axios.post('http://10.39.193.95:9999/api/login', {
+      that.$axios.post('/login', {
         username: that.user,
         password: that.password,
         groupId: 'U'
       }).then(res => {
         console.log(res)
       }, err => {
+        console.log(err)
+      }).catch(err => {
         console.log(err)
       })
     }
