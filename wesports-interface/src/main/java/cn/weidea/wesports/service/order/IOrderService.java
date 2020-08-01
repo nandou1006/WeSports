@@ -1,9 +1,6 @@
 package cn.weidea.wesports.service.order;
 
-import cn.weidea.wesports.entity.CommonResult;
-import cn.weidea.wesports.entity.Order;
-import cn.weidea.wesports.entity.OrderCheckDto;
-import cn.weidea.wesports.entity.OrderDto;
+import cn.weidea.wesports.entity.*;
 import cn.weidea.wesports.vo.OrderVO;
 
 import java.util.List;
@@ -19,4 +16,6 @@ public interface IOrderService {
     OrderCheckDto check(String userId, Integer companyId);
     //支付
     OrderDto payOrder(String orderId);
+
+    List<CompanyOrderDto> getCompanyOrders(Integer companyId);
 }
