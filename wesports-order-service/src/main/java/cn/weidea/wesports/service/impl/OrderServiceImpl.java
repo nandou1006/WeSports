@@ -106,20 +106,20 @@ public class OrderServiceImpl implements IOrderService {
         String temperature = new DecimalFormat("0.00").format(temp);
         dto.setTemp(temperature);
         if(order != null && temp <38 && health) {
-            dto.setStat(2);
+            dto.setStat(String.valueOf(2));
             order.setStat(2);
 //            orderMapper.updateById(order);
             dto.setHealth("健康");
         }
         else {
             dto.setHealth("不健康");
-            dto.setStat(order.getStat());
+            dto.setStat(String.valueOf(order.getStat()));
         }
         //数据上链
         OrderDto orderDto = new OrderDto();
         BeanUtils.copyProperties(order, orderDto);
         String transactionHash = setOrderOnBlockChain.set(userId, orderDto);
-        order.setBlockToken(transactionHash);
+        order.setBlock_token(transactionHash);
         QueryWrapper<Order> qw = new QueryWrapper<>();
         qw.eq("order_id",order.getOrderId());
         int result = orderMapper.update(order,qw);//更新订单的blockToken
