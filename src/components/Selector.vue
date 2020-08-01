@@ -57,8 +57,8 @@ export default {
       let rangeStart = range.substring(0, 5)
       let rangeEnd = range.substring(6)
       let res = {
-        startTime: `${date}T${rangeStart}:00`,
-        endTime: `${date}T${rangeEnd}:00`
+        startTime: new Date(`${date}T${rangeStart}:00`),
+        endTime: new Date(`${date}T${rangeEnd}:00`)
       }
       return res
     },
