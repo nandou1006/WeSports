@@ -16,7 +16,24 @@ public enum ErrorCodeEnum {
     FACENOTEXIST(500, "人脸验证失败，用户不存在"),
 
     // 人脸图像上传失败
-    IMGUPLOADFAIL(501,"人脸上传失败");
+    IMGUPLOADFAIL(501,"人脸上传失败"),
+
+    NODATA(1000, "数据库查询结果为空，请确认查询参数"),
+
+    CREATE_FAIL(1001, "创建失败"),
+
+    DELECT_FAIL(1002, "删除失败"),
+
+    ID_ERROR(1003, "ID不存在"),
+
+    // 用户更新个人信息失败
+    UPDATE_PERSONAL_DATA_FAIL(400, "用户更新个人信息失败"),
+
+    // 注册用户失败
+    REGISTER_USER_FAIL(400, "用户注册失败"),
+
+    // 短信发送失败
+    SMS_SEND_FAIL(400, "短信发送失败");
 
     /**
      * 错误码

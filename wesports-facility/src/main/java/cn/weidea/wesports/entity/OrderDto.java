@@ -1,13 +1,20 @@
 package cn.weidea.wesports.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class OrderDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderDto implements Serializable {
+    private static final long serialVersionUID = 8419526607958544447L;
+
     private String orderId;
 
     private int userId;
@@ -16,7 +23,7 @@ public class OrderDto {
 
     private int companyId;
 
-    private int status;
+    private int stat;
 
     private int points;
 

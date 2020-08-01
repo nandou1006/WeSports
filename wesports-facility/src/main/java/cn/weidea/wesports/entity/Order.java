@@ -1,19 +1,21 @@
 package cn.weidea.wesports.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@TableName(value = "`order`")
 public class Order {
-    private int id;
+    private String id;
 
     private String orderId;
 
@@ -23,21 +25,25 @@ public class Order {
 
     private int companyId;
 
-    private int status;
+    private int stat;
 
     private int points;
 
     private BigDecimal cost;
 
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
 
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date endTime;
 
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
-    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+//    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 }

@@ -1,0 +1,56 @@
+spring:
+  profiles:
+    active: dev
+
+sports:
+  sms:
+    API_URL: https://sms_developer.zhenzikj.com
+    API_ID: 104382
+    APP_SECRET: 2cb5347e-acd8-4765-89c8-d90df7ae6893
+
+---
+spring:
+  profiles: dev
+
+# service version
+wesports:
+  service:
+    version: 1.0.dev
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-sms-service-dev
+    name: wesports-sms-service-dev
+    qos-enable: false
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+  protocol:
+    name: dubbo
+    port: 20885
+  provider:
+    timeout: 300000
+
+---
+spring:
+  profiles: uat
+
+# service version
+wesports:
+  service:
+    version: 1.0
+
+# Dubbo Config properties
+dubbo:
+  application:
+    id: wesports-sms-service
+    name: wesports-sms-service
+  registry:
+    protocol: zookeeper
+    address: 106.52.54.67:2181
+  protocol:
+    name: dubbo
+    port: 20884
+  provider:
+    timeout: 5000
