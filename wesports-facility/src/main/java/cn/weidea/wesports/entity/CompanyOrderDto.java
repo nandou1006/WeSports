@@ -31,7 +31,7 @@ public class CompanyOrderDto implements Serializable {
 
     private BigDecimal cost;
 
-    private String blockId;
+    private String blockToken;
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;

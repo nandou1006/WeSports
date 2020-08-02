@@ -119,7 +119,7 @@ public class OrderServiceImpl implements IOrderService {
         OrderDto orderDto = new OrderDto();
         BeanUtils.copyProperties(order, orderDto);
         String transactionHash = setOrderOnBlockChain.set(userId, orderDto);
-        order.setBlock_token(transactionHash);
+        order.setBlockToken(transactionHash);
         QueryWrapper<Order> qw = new QueryWrapper<>();
         qw.eq("order_id",order.getOrderId());
         int result = orderMapper.update(order,qw);//更新订单的blockToken
